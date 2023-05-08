@@ -1,34 +1,17 @@
 <html>
   <head>
-    <script type = "text/javascript" src="main.js"></script>  
     <link rel="icon" type="image/x-icon" sizes="32x32" href="favicon/favicon.ico">
     <title>Bad Volume Slider</title>
   </head>
   <body>
     <audio id = "idAudio">
-      <source src = "music/purrple-cat-green-tea.mp3" type = "audio/ogg" >
       <source src = "music/purrple-cat-green-tea.mp3" type ="audio/mpeg">
       The browser is not supporting the audio element...
     </audio>
     <button onclick = "playaudio()" type = "button" > Play the Audio </button>
     <button onclick = "pauseaudio()" type = "button" > Pause the Audio </button>
     <button onclick = "stopaudio()" type = "button" > Stop the Audio </button>
-    <input type="range" id="volume-control">
-    <script>
-
-    let a = document.getElementById("idAudio");
-
-
-    function playaudio() {
-      a.play();
-    }
-    function pauseaudio() {
-      a.pause();
-    }
-    function stopaudio() {
-      a.pause();
-      a.currentTime = 0;
-    }
-    </script>
+    <input type="range" id="volume-slider">
   </body>
+  <script type = "text/javascript" src="main.js"></script>  
 </html>
