@@ -1,13 +1,14 @@
 const audio = document.getElementById("idAudio");
 let volume = document.getElementById("volume-slider");
 
-function playaudio() {
+function playSong() {
+  console.log('dgsdgs');
   audio.play();
 }
-function pauseaudio() {
+function pauseSong() {
   audio.pause();
 }
-function stopaudio() {
+function stopSong() {
   audio.pause();
   audio.currentTime = 0;
 }
