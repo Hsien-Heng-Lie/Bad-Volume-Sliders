@@ -16,39 +16,31 @@ app.use('*', (req, res, next) => {
 });
 
 //allows access to fetch DB calls
-app.get('/audio/detail/:id', async (req, res, next) => {
+app.get('/audio/details/:id', async (req, res, next) => {
   const details = await dbHandler.readIndividualDetails(req.params.id);//example, not sure if needed
   res.write(JSON.stringify(details));
   res.end();
 });
 
-app.get('/audio/detail', async (req, res, next) => {
+app.get('/audio/details', async (req, res, next) => {
   const details = await dbHandler.readAudioDetail();
   res.write(JSON.stringify(details));
   res.end();
 });
 
-app.get('/audio/link', async (req, res, next) => {
+app.get('/audio/links', async (req, res, next) => {
   const links = await dbHandler.readAudioLink();
   res.write(JSON.stringify(links));
   res.end();
 });
 
+//root page
 app.get('/', function(req, res){
-  res.sendFile('index.html', { root: path.join(__dirname, '../../FE/src') })
+  res.sendFile('index.html', { root: path.join(__dirname, '../../FE/src') , extensions:['html'] });
 });
 
-app.get('/song', function(req, res){
-  res.sendFile('song.html', { root: path.join(__dirname, '../../FE/src') })
-});
-
-app.get('/stats', function(req, res){
-  res.sendFile('stats.html', { root: path.join(__dirname, '../../FE/src') })
-});
-
-app.get('/volume', function(req, res){
-  res.sendFile('volume.html', { root: path.join(__dirname, '../../FE/src') })
-});
+//any other public page
+app.use(express.static(path.join(__dirname, '../../FE/src'), {extensions:['html']}));
 
 //any other routes go here
 app.get('*', function(req, res){

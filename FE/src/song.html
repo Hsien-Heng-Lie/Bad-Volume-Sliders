@@ -3,13 +3,13 @@
 <head>
   <title>Song Details</title>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
-  <script src="./js/main.js"></script>
+  <script src="./js/dbInterface.js"></script>
 </head>
 <body>
   <header>
     <nav>
       <ul>
-        <li><a href="">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="song">Songs</a></li>
         <li><a href="volume">Volume Balancer</a></li>
         <li><a href="stats">Song Stats</a></li>
@@ -24,7 +24,7 @@
     <source src="" type="audio/mpeg">
   </audio>
 
-  <button onclick="playSong()">Play</button>
+  <button onclick="listAudioDetails()">Play</button>
   <button onclick="pauseSong()">Pause</button>
   <button onclick="nextSong()">Next</button>
 
