@@ -3,7 +3,6 @@ const listAudioDetails = async () => {
   const response =  await fetch('audio/details', {
     method: 'GET',
   });
-
   return await response.json();
 };
 

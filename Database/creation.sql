@@ -161,3 +161,11 @@ BEGIN
 
 END
 GO
+
+CREATE TABLE [dbo].[VolumeSliderReview](
+	[VolumeSliderId] [bigint] NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[Review] [varchar](500) NOT NULL,
+	[Rating] [decimal](1, 0) NOT NULL
+) ON [PRIMARY]
+GO

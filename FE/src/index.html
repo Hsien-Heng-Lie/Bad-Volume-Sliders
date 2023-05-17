@@ -3,9 +3,9 @@
 <head>
   <title>Music Player</title>
   <link rel="stylesheet" type="text/css" href="../../FE/src/css/style.css">
-  <script src="script.js"></script>
-</head>
-<body>
+  
+  </head>
+<body onload="getAudioDetails()">
 
   <header>
     <nav>
@@ -32,6 +32,7 @@
     <input type="file" id="songFile" accept="audio/mpeg">
     <button type="submit">Add Song</button>
   </form>
-
+  <script type="module" src="./script.js"></script>
+  
 </body>
 </html>

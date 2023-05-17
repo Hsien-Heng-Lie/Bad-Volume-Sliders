@@ -1,8 +1,7 @@
 {
   "sql" : {
-    "dataSource" : "GABRIELT\\SQLEXPRESS;",
+    "dataSource" : "HSIENL\\SQLEXPRESS;",
     "databse" : "BVS",
     "settings" : "Integrated Security = True;"
-
   }
 }
