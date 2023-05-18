@@ -2,7 +2,7 @@
   "name": "bad-volume-sliders",
   "version": "1.0.0",
   "description": "Some really bad ways to implement volume control.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
