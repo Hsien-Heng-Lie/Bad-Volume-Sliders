@@ -1,23 +1,52 @@
-const query = async (path) => {
+async function query(path){
   const response = await fetch(path);
   const responseJson = await response.json();
   return responseJson;
 };
 
-const listAudioDetails = async () => {
-  return await query('audio/details');
+async function listVolumeSliderDetails() {
+  return await query('volumeslider/details');
 };
 
-const retrieveAudioDetails = async (id) => {
-  return await query(`audio/details/${id}`);
+async function incrementVolumeSliderClicks(name){
+  const path = 'volumeslider/update/click'
+  const params = JSON.stringify({name: name})
+
+  const response = await fetch(path, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: params
+  });
+  const responseJson = await response.ok;
+  return responseJson;
 };
 
-const listAudioLinks = async () => {
-  return await query('audio/links');
+async function reviewVolumeSlider(name, review, rating){
+  const path = 'volumeslider/review'
+  const params = JSON.stringify(
+    {name: name,
+    review: review,
+    rating: rating
+    }
+    )
+  console.log(params);
+
+  const response = await fetch(path, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: params
+  });
+  const responseJson = await response.ok;
+  return responseJson;
 };
+
 
 export {
-  listAudioDetails,
-  retrieveAudioDetails,
-  listAudioLinks,
+  listVolumeSliderDetails,
+  incrementVolumeSliderClicks,
+  reviewVolumeSlider,
 };

@@ -1,111 +1,60 @@
 const sql = require("mssql/msnodesqlv8");
 const dbConnect = require('./dbConnectHandler');
-const Audio = require('./audioClass');
 
-const readAudioDetail = async () => {
+async function readVolumerSlider() {
   const conn = await dbConnect
 
   const request = new sql.Request(conn);
 
-    const query = `SELECT
-    ad.id,
-    ad.Title,
-    ad.Artist,
-    af.[FileName],
-    af.[Path]
-  FROM dbo.AudioLink AS al
-    INNER JOIN dbo.AudioFIle AS af
-    ON al.AudioFileId = af.Id
-    INNER JOIN dbo.AudioDetail AS ad
-    ON al.AudioDetailId = ad.Id`;
+  const query = `SELECT
+  vs.id,
+  vs.Name,
+  vsc.Clicks,
+  ROW_NUMBER() OVER(ORDER BY vsc.Clicks DESC) AS [Row]
+ FROM [dbo].[VolumeSlider] AS vs
+ INNER JOIN [dbo].[VolumeSliderClicks] AS vsc
+ ON vsc.VolumeSliderId = vs.Id
+ ORDER BY [Row] ASC`;
 
-    let audioDetails = [];
-
-    const result = await request.query(query);
-
-    let audioResult = result.recordset;
-
-    audioResult.map(function(item){
-      audioDetails.push(
-        item.id,
-        item.Title,
-        item.Artist,
-        item.Path,
-        item.FileName
-      )
-    }
-
-    )
-
-    console.dir(audioDetails)
-
-    return result;
+  const result = await request.query(query);
+  return result.recordset;
 };
 
-
-const readAudioLink = async () => {
+async function updateVolumeSliderClick(name) {
   const conn = await dbConnect
 
   const request = new sql.Request(conn);
+  const query = 'EXEC	[dbo].[sp_UpsertVolumeSlider] @Name = \'' + name + '\''; 
 
-    const query = `SELECT
-    ad.id,
-    ad.Title,
-    ad.Artist,
-    af.[FileName],
-    af.[Path]
-  FROM dbo.AudioLink AS al
-    INNER JOIN dbo.AudioFIle AS af
-    ON al.AudioFileId = af.Id
-    INNER JOIN dbo.AudioDetail AS ad
-    ON al.AudioDetailId = ad.Id`;
 
-    const result = await request.query(query);
-
-    console.dir(result)
-
-    return result;
+  const result = await request.query(query);
+  return result.output;
 };
 
-async function readIndividualDetails(id){
+async function createVolumeSliderReview(name, review, rating) {
   const conn = await dbConnect
 
   const request = new sql.Request(conn);
 
-    const query = `SELECT
-      ad.id,
-      ad.Title,
-      ad.Artist,
-      af.[FileName],
-      af.[Path]
-    FROM dbo.AudioLink AS al
-      INNER JOIN dbo.AudioFIle AS af
-      ON al.AudioFileId = af.Id
-      INNER JOIN dbo.AudioDetail AS ad
-      ON al.AudioDetailId = ad.Id`;
+  console.log(review + " " + rating);
 
-    const result = await request.query(query);
-    let audioResult = result.recordset.find(e => e.id == 1)
-    const audio = new Audio(
-      audioResult.id,
-      audioResult.Title,
-      audioResult.Artist,
-      audioResult.Path,
-      audioResult.FileName
-    );
-    console.dir(audioResult);
+  const query = 'EXEC [dbo].[sp_CreateReview] @Name = \'' + name + '\',' +
+  '@Review = \'' + review + '\',' +
+  '@Rating = ' + rating; 
+  
+  const result = await request.query(query);
+  return result.output;
+};
 
-    return audio;
-}
 
 module.exports = {
-  readAudioDetail: function(){
-    return readAudioDetail();
+  readVolumerSlider: function(){
+    return readVolumerSlider();
   },
-  readAudioLink: function(){
-    return readAudioLink();
+  updateVolumeSliderClick: function(name){
+    return updateVolumeSliderClick(name);
   },
-  readIndividualDetails: function(id){
-    return readIndividualDetails(id);
+  createVolumeSliderReview: function(name, review, rating){
+    return createVolumeSliderReview(name, review, rating);
   }
 };

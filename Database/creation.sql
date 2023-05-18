@@ -1,58 +1,21 @@
 CREATE DATABASE [BVS]
-
 USE [BVS]
 GO
-/****** Object:  Table [dbo].[AudioDetail]    Script Date: 2023/05/12 16:30:42 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AudioDetail](
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Title] [varchar](255) NOT NULL,
-	[Artist] [varchar](255) NOT NULL,
- CONSTRAINT [PK_AudioDetail] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AudioFIle]    Script Date: 2023/05/12 16:30:42 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AudioFIle](
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[FileName] [varchar](255) NOT NULL,
-	[Path] [varchar](255) NOT NULL,
- CONSTRAINT [PK_AudioFIle] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AudioLink]    Script Date: 2023/05/12 16:30:42 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AudioLink](
-	[AudioDetailId] [bigint] NULL,
-	[AudioFileId] [bigint] NULL
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[VolumeSlider]    Script Date: 2023/05/12 16:30:42 ******/
+/****** Object:  Table [dbo].[VolumeSlider]    Script Date: 2023/05/18 11:05:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[VolumeSlider](
 	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Name] [varchar](500) NOT NULL
+	[Name] [varchar](500) NOT NULL,
+ CONSTRAINT [UQ_VolumeSlider] UNIQUE NONCLUSTERED 
+(
+	[Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[VolumeSliderClicks]    Script Date: 2023/05/12 16:30:42 ******/
+/****** Object:  Table [dbo].[VolumeSliderClicks]    Script Date: 2023/05/18 11:05:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -62,53 +25,21 @@ CREATE TABLE [dbo].[VolumeSliderClicks](
 	[Clicks] [bigint] NOT NULL
 ) ON [PRIMARY]
 GO
-SET IDENTITY_INSERT [dbo].[AudioDetail] ON 
+/****** Object:  Table [dbo].[VolumeSliderReview]    Script Date: 2023/05/18 11:05:46 ******/
+SET ANSI_NULLS ON
 GO
-INSERT [dbo].[AudioDetail] ([Id], [Title], [Artist]) VALUES (1, N'Green Tea', N'Purrple Cat; ')
+SET QUOTED_IDENTIFIER ON
 GO
-SET IDENTITY_INSERT [dbo].[AudioDetail] OFF
-GO
-SET IDENTITY_INSERT [dbo].[AudioFIle] ON 
-GO
-INSERT [dbo].[AudioFIle] ([Id], [FileName], [Path]) VALUES (1, N'purrple-cat-green-tea.mp3', N'\Music')
-GO
-SET IDENTITY_INSERT [dbo].[AudioFIle] OFF
-GO
-INSERT [dbo].[AudioLink] ([AudioDetailId], [AudioFileId]) VALUES (1, 1)
-GO
-SET IDENTITY_INSERT [dbo].[VolumeSlider] ON 
-GO
-INSERT [dbo].[VolumeSlider] ([Id], [Name]) VALUES (1, N'Test')
-GO
-INSERT [dbo].[VolumeSlider] ([Id], [Name]) VALUES (2, N'TEST2')
-GO
-INSERT [dbo].[VolumeSlider] ([Id], [Name]) VALUES (3, N'KYLE')
-GO
-SET IDENTITY_INSERT [dbo].[VolumeSlider] OFF
-GO
-INSERT [dbo].[VolumeSliderClicks] ([VolumeSliderId], [Clicks]) VALUES (1, 5)
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [UQ_VolumeSlider]    Script Date: 2023/05/12 16:30:42 ******/
-ALTER TABLE [dbo].[VolumeSlider] ADD  CONSTRAINT [UQ_VolumeSlider] UNIQUE NONCLUSTERED 
-(
-	[Name] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE TABLE [dbo].[VolumeSliderReview](
+	[VolumeSliderId] [bigint] NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[Review] [varchar](500) NOT NULL,
+	[Rating] [decimal](1, 0) NOT NULL
+) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[VolumeSliderClicks] ADD  CONSTRAINT [DF_VolumeSliderClicks_Clicks]  DEFAULT ((0)) FOR [Clicks]
 GO
-ALTER TABLE [dbo].[AudioLink]  WITH CHECK ADD  CONSTRAINT [FK_AudioLink_AudioDetail] FOREIGN KEY([AudioDetailId])
-REFERENCES [dbo].[AudioDetail] ([Id])
-GO
-ALTER TABLE [dbo].[AudioLink] CHECK CONSTRAINT [FK_AudioLink_AudioDetail]
-GO
-ALTER TABLE [dbo].[AudioLink]  WITH CHECK ADD  CONSTRAINT [FK_AudioLink_AudioFIle] FOREIGN KEY([AudioFileId])
-REFERENCES [dbo].[AudioFIle] ([Id])
-GO
-ALTER TABLE [dbo].[AudioLink] CHECK CONSTRAINT [FK_AudioLink_AudioFIle]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_UpsertVolumeSlider]    Script Date: 2023/05/12 16:30:42 ******/
+/****** Object:  StoredProcedure [dbo].[sp_UpsertVolumeSlider]    Script Date: 2023/05/18 11:05:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -162,10 +93,27 @@ BEGIN
 END
 GO
 
-CREATE TABLE [dbo].[VolumeSliderReview](
-	[VolumeSliderId] [bigint] NOT NULL,
-	[Date] [datetime] NOT NULL,
-	[Review] [varchar](500) NOT NULL,
-	[Rating] [decimal](1, 0) NOT NULL
-) ON [PRIMARY]
+
+CREATE PROCEDURE [dbo].[sp_CreateReview] 
+	@Name VARCHAR(500),
+	@Review VARCHAR(500),
+	@Rating DECIMAL(1,0)
+AS
+BEGIN
+	DECLARE @id BIGINT
+
+	SET @id = (SELECT TOP(1) Id FROM dbo.VolumeSlider WHERE [Name] = @Name)
+	
+	INSERT INTO [dbo].[VolumeSliderReview]
+           ([VolumeSliderId]
+           ,[Date]
+           ,[Review]
+           ,[Rating])
+     VALUES
+           (@id,
+		   GETDATE(),
+           @Review,
+           @Rating)
+END
+
 GO
