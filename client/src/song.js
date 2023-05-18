@@ -24,29 +24,37 @@ function clipVolume(requestedVolume, min=0, max=1000) {
   return requestedVolume;
 }
 
-function updateVolumeLabel(newVolume, normalize=true) {
+function updateVolumeLabel(newVolume, normalize=false) {
   const normalizedVolume = clipVolume(normalize ? newVolume / 10 ** String(newVolume).length : newVolume, 0, 1);
   audio.volume = normalizedVolume;
   volumeLabel.innerText = `Current volume: ${(normalizedVolume * 100).toFixed(0)}%`;
 }
 
 function randomiseVolume() {
-  updateVolumeLabel(Math.random(), false);
+  updateVolumeLabel(Math.random());
 }
 
 function setVolume() {
   const clippedVolume = clipVolume(volumeInput.value);
   volumeInput.value = clippedVolume;
 
-  updateVolumeLabel(clippedVolume);
+  updateVolumeLabel(clippedVolume, true);
 }
 
 function squareRootVolume() {
-  updateVolumeLabel(Math.sqrt(audio.volume * 100) / 100, false);
+  updateVolumeLabel(Math.sqrt(audio.volume * 100) / 100);
 }
 
 function squareVolume() {
-  updateVolumeLabel(Math.pow(audio.volume * 100, 2) / 100, false);
+  updateVolumeLabel(Math.pow(audio.volume * 100, 2) / 100);
+}
+
+function increaseVolume() {
+  updateVolumeLabel(audio.volume + 0.001);
+}
+
+function decreaseVolume() {
+  updateVolumeLabel(audio.volume - 0.001);
 }
 
 // volume.addEventListener("input", function(e) {
