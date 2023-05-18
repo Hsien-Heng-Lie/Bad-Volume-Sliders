@@ -14,9 +14,13 @@ function stopSong() {
   audio.currentTime = 0;
 }
 
+function updateVolumeLabel(newVolumePercentage) {
+  audio.volume = newVolumePercentage;
+  volumeLabel.innerText = `Current volume: ${(newVolumePercentage * 100).toFixed(0)}%`;
+}
+
 function randomiseVolume() {
-  audio.volume = Math.random();
-  volumeLabel.innerText = `Current volume: ${(audio.volume * 100).toFixed(0)}`;
+  updateVolumeLabel(Math.random());
 }
 
 function setVolume() {
@@ -29,10 +33,7 @@ function setVolume() {
     requestedVolume = 1000;
   }
 
-  const volumeMax = 10 ** String(requestedVolume).length;
-
-  audio.volume = requestedVolume / volumeMax;
-  volumeLabel.innerText = `Current volume: ${(audio.volume * 100).toFixed(0)}`;
+  updateVolumeLabel(requestedVolume / 10 ** String(requestedVolume).length);
 }
 
 // volume.addEventListener("input", function(e) {
