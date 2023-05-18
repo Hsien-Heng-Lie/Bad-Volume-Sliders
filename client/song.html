@@ -31,6 +31,9 @@
   <button onclick="stopSong()">Stop</button>
   <button onclick="randomiseVolume()">Randomise volume</button>
 
+  <label for="volumeInput">New volume:</label>
+  <input type="number" id="volumeInput" onchange="setVolume()" min="0" max="1000"/>
+
   <script src="./src/song.js"></script>
 </body>
 </html>
