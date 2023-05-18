@@ -16,6 +16,8 @@ app.use('*', (req, res, next) => {
   next();
 });
 
+app.use(express.static(path.join(__dirname, '../../FE/src')))
+
 //allows access to fetch DB calls
 app.get('/audio/detail/:id', async (req, res, next) => {
   const Audio = await dbHandler.readIndividualDetails(req.params.id);//example, not sure if needed
@@ -23,7 +25,7 @@ app.get('/audio/detail/:id', async (req, res, next) => {
   res.end();
 });
 
-app.get('/audio/detail', async (req, res, next) => {
+app.get('/audio/details', async (req, res, next) => {
   const details = await dbHandler.readAudioDetail();
   res.write(JSON.stringify(details));
   res.end();

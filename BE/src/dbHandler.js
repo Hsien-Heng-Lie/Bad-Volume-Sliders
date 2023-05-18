@@ -37,9 +37,6 @@ const readAudioDetail = async () => {
     }
     
     )
-
-    console.dir(audioDetails)
-
     return result;
 };
 
@@ -62,10 +59,6 @@ const readAudioLink = async () => {
     ON al.AudioDetailId = ad.Id`;
 
     const result = await request.query(query);
-
-    console.dir(result)
-
-    return result;
 };
 
 async function readIndividualDetails(id){
@@ -94,8 +87,6 @@ async function readIndividualDetails(id){
       audioResult.Path,
       audioResult.FileName
     );
-    console.dir(audioResult);
-
     return audio;
 }
 
