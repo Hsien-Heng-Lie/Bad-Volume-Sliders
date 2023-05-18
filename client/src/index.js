@@ -2,10 +2,20 @@ import * as dbInterface from './dbInterface.js';
 
 let audoDetails = [];
 
-async function getAudioDetails(){
-  audoDetails = await dbInterface.listAudioDetails();
+async function getVolumeSliderDetails(){
+  audoDetails = await dbInterface.listVolumeSliderDetails();
   console.log(audoDetails)
 };
 
+function selectVolumeSlider(name){
+  dbInterface.incrementVolumeSliderClicks(name);
+};
 
-window.getAudioDetails = getAudioDetails;
+function reviewVolumeSlider(name, review, rating){
+  dbInterface.reviewVolumeSlider(name, review, rating);
+};
+
+
+window.reviewVolumeSlider = reviewVolumeSlider;
+window.getVolumeSliderDetails = getVolumeSliderDetails;
+window.selectVolumeSlider = selectVolumeSlider;

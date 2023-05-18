@@ -1,5 +1,6 @@
 const express = require('express');
 const dbHandler = require("./server/src/dbHandler");
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 4000;
@@ -8,6 +9,10 @@ const server = app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
 });
 
+//any other public page
+app.use(express.static('./client', {extensions:['html']}));
+app.use(bodyParser.json())
+
 //logs all methods to console
 app.use('*', (req, res, next) => {
   console.log(`${req.method} on ${req.originalUrl}`);
@@ -15,21 +20,21 @@ app.use('*', (req, res, next) => {
 });
 
 //allows access to fetch DB calls
-app.get('/audio/detail/:id', async (req, res, next) => {
-  const Audio = await dbHandler.readIndividualDetails(req.params.id);
-  res.write(JSON.stringify(Audio));
-  res.end();
-});
-
-app.get('/audio/details', async (req, res, next) => {
-  const details = await dbHandler.readAudioDetail();
+app.get('/volumeslider/details', async (req, res, next) => {
+  const details = await dbHandler.readVolumerSlider();
   res.write(JSON.stringify(details));
   res.end();
 });
 
-app.get('/audio/links', async (req, res, next) => {
-  const links = await dbHandler.readAudioLink();
-  res.write(JSON.stringify(links));
+app.post('/volumeslider/update/click', async (req, res, next) => {
+  const result = await dbHandler.updateVolumeSliderClick(req.body["name"]);
+  res.write(JSON.stringify(result));
+  res.end();
+});
+
+app.post('/volumeslider/review', async (req, res, next) => {
+  const result = await dbHandler.createVolumeSliderReview(req.body["name"], req.body["review"], req.body["rating"]);
+  res.write(JSON.stringify(result));
   res.end();
 });
 
@@ -37,9 +42,6 @@ app.get('/audio/links', async (req, res, next) => {
 app.get('/', function(req, res){
   res.sendFile('index.html', { root: './client' , extensions:['html'] });
 });
-
-//any other public page
-app.use(express.static('./client', {extensions:['html']}));
 
 //any other routes go here
 app.get('*', function(req, res){
