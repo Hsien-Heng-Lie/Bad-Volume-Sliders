@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const dbHandler = require("./server/src/dbHandler");
 
 const app = express();
@@ -36,11 +35,11 @@ app.get('/audio/links', async (req, res, next) => {
 
 //root page
 app.get('/', function(req, res){
-  res.sendFile('index.html', { root: path.join(__dirname, './client') , extensions:['html'] });
+  res.sendFile('index.html', { root: './client' , extensions:['html'] });
 });
 
 //any other public page
-app.use(express.static(path.join(__dirname, './client'), {extensions:['html']}));
+app.use(express.static('./client', {extensions:['html']}));
 
 //any other routes go here
 app.get('*', function(req, res){
