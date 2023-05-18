@@ -1,6 +1,6 @@
 {
   "sql" : {
-    "dataSource" : "HSIENL\\SQLEXPRESS;",
+    "dataSource" : "(local)\\SQLEXPRESS;",
     "databse" : "BVS",
     "settings" : "Integrated Security = True;"
   }

@@ -2,8 +2,8 @@ import * as dbInterface from './dbInterface.js';
 
 let audoDetails = [];
 
-function getAudioDetails(){
-  audoDetails = dbInterface.listAudioDetails();
+async function getAudioDetails(){
+  audoDetails = await dbInterface.listAudioDetails();
   console.log(audoDetails)
 };
 
