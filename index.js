@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
-const dbHandler = require("./dbHandler");
-const Audio = require('./audioClass');
+const dbHandler = require("./server/src/dbHandler");
 
 const app = express();
 const port = 4000;
@@ -18,7 +17,7 @@ app.use('*', (req, res, next) => {
 
 //allows access to fetch DB calls
 app.get('/audio/detail/:id', async (req, res, next) => {
-  const Audio = await dbHandler.readIndividualDetails(req.params.id);//example, not sure if needed
+  const Audio = await dbHandler.readIndividualDetails(req.params.id);
   res.write(JSON.stringify(Audio));
   res.end();
 });
@@ -37,11 +36,11 @@ app.get('/audio/links', async (req, res, next) => {
 
 //root page
 app.get('/', function(req, res){
-  res.sendFile('index.html', { root: path.join(__dirname, '../../FE/src') , extensions:['html'] });
+  res.sendFile('index.html', { root: path.join(__dirname, './client') , extensions:['html'] });
 });
 
 //any other public page
-app.use(express.static(path.join(__dirname, '../../FE/src'), {extensions:['html']}));
+app.use(express.static(path.join(__dirname, './client'), {extensions:['html']}));
 
 //any other routes go here
 app.get('*', function(req, res){

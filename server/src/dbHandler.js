@@ -1,6 +1,5 @@
 const sql = require("mssql/msnodesqlv8");
 const dbConnect = require('./dbConnectHandler');
-const { text } = require("express");
 const Audio = require('./audioClass');
 
 const readAudioDetail = async () => {
@@ -35,7 +34,7 @@ const readAudioDetail = async () => {
         item.FileName
       )
     }
-    
+
     )
 
     console.dir(audioDetails)
