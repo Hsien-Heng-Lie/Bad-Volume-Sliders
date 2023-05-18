@@ -14,26 +14,39 @@ function stopSong() {
   audio.currentTime = 0;
 }
 
-function updateVolumeLabel(newVolumePercentage) {
-  audio.volume = newVolumePercentage;
-  volumeLabel.innerText = `Current volume: ${(newVolumePercentage * 100).toFixed(0)}%`;
+function clipVolume(requestedVolume, min=0, max=1000) {
+  if (requestedVolume < min) {
+    return min;
+  }
+  if (requestedVolume > max) {
+    return max;
+  }
+  return requestedVolume;
+}
+
+function updateVolumeLabel(newVolume, normalize=true) {
+  const normalizedVolume = clipVolume(normalize ? newVolume / 10 ** String(newVolume).length : newVolume, 0, 1);
+  audio.volume = normalizedVolume;
+  volumeLabel.innerText = `Current volume: ${(normalizedVolume * 100).toFixed(0)}%`;
 }
 
 function randomiseVolume() {
-  updateVolumeLabel(Math.random());
+  updateVolumeLabel(Math.random(), false);
 }
 
 function setVolume() {
-  let requestedVolume = volumeInput.value;
-  if (requestedVolume < 0) {
-    volumeInput.value = 0;
-    requestedVolume = 0;
-  } else if (requestedVolume > 1000) {
-    volumeInput.value = 1000;
-    requestedVolume = 1000;
-  }
+  const clippedVolume = clipVolume(volumeInput.value);
+  volumeInput.value = clippedVolume;
 
-  updateVolumeLabel(requestedVolume / 10 ** String(requestedVolume).length);
+  updateVolumeLabel(clippedVolume);
+}
+
+function squareRootVolume() {
+  updateVolumeLabel(Math.sqrt(audio.volume * 100) / 100, false);
+}
+
+function squareVolume() {
+  updateVolumeLabel(Math.pow(audio.volume * 100, 2) / 100, false);
 }
 
 // volume.addEventListener("input", function(e) {
