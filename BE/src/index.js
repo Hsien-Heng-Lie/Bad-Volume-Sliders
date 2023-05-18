@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const dbHandler = require("./dbHandler");
+const Audio = require('./audioClass');
 
 const app = express();
 const port = 4000;
@@ -16,9 +17,9 @@ app.use('*', (req, res, next) => {
 });
 
 //allows access to fetch DB calls
-app.get('/audio/details/:id', async (req, res, next) => {
-  const details = await dbHandler.readIndividualDetails(req.params.id);//example, not sure if needed
-  res.write(JSON.stringify(details));
+app.get('/audio/detail/:id', async (req, res, next) => {
+  const Audio = await dbHandler.readIndividualDetails(req.params.id);//example, not sure if needed
+  res.write(JSON.stringify(Audio));
   res.end();
 });
 
