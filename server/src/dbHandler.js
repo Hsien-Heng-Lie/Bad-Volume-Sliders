@@ -1,5 +1,5 @@
 const sql = require("mssql/msnodesqlv8");
-const dbConnect = require('./dbConnectHandler');
+const dbConnect = require('./dbConnectService');
 
 async function readVolumerSlider() {
   const conn = await dbConnect
