@@ -1,7 +1,9 @@
 {
   "sql" : {
-    "dataSource" : "(local)\\SQLEXPRESS;",
+    "dataSource" : "bvs.cywd7qphawxe.af-south-1.rds.amazonaws.com;",
     "databse" : "BVS",
-    "settings" : "Integrated Security = True;"
+    "settings" : "Integrated Security = True;",
+    "user" : "bvsadmin",
+    "password" : "bvsadmin123"
   }
 }
