@@ -1,2 +1,2 @@
-BE/src/node_modules/
-BE/src/package-lock.json
+node_modules/
+package-lock.json

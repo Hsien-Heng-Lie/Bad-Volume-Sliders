@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Player</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+  </head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="song">Songs</a></li>
+        <li><a href="volume">Volume Balancer</a></li>
+        <li><a href="stats">Song Stats</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Music Player</h1>
+  <h2>List of Songs</h2>
+  <ul id="songList">
+    <li><a href="song?id=1">Song 1</a></li>
+    <li><a href="song?id=2">Song 2</a></li>
+    <li><a href="song?id=3">Song 3</a></li>
+    <li><a href="song?id=4">Song 4</a></li>
+  </ul>
+
+  <form id="addSongForm">
+    <label for="songFile">Upload Song:</label>
+    <input type="file" id="songFile" accept="audio/mpeg">
+    <button type="submit">Add Song</button>
+  </form>
+  <script type="module" src="./src/index.js"></script>
+
+</body>
+</html>
