@@ -1,0 +1,33 @@
+:root {
+    --color-primary-500: #ff4081;
+    --color-primary-600: #c73766;
+    --color-primary-700: #922e4c;
+    --color-primary-800: #602334;
+    --color-primary-900: #32171d;
+    --white-color : #ffffff;
+  }
+
+#volume-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    background-color:var(--white-color) ;
+}
+
+#volume-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ccc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+#volume-fill {
+    height: 100%;
+    background-color: var(--color-primary-600);
+    width: 0%;
+}
