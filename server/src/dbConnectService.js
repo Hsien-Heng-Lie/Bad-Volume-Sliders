@@ -1,4 +1,4 @@
-const sql = require("mssql/msnodesqlv8");
+const sql = require("mssql");
 const config = require('../../config.json');
 
 const connect = async () => {
@@ -9,7 +9,7 @@ const connect = async () => {
     server: config.sql.dataSource,
     database: config.sql.databse,
     options: {
-      trustedConnection: false
+    trustServerCertificate: true
     }
   });
 
