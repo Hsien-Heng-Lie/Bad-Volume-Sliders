@@ -1,4 +1,4 @@
-const audio = document.getElementById("audioPlayer");
+const audio = document.getElementById("audio-player");
 // let volume = document.getElementById("volume-slider");
 
 function playSong() {
