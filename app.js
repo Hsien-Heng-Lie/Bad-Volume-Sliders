@@ -1,5 +1,6 @@
 const express = require('express');
 const dbHandler = require("./server/src/dbHandler");
+const openAI = require("./server/src/openAI");
 
 const app = express();
 const port = 4000;
@@ -30,6 +31,12 @@ app.get('/audio/details', async (req, res, next) => {
 app.get('/audio/links', async (req, res, next) => {
   const links = await dbHandler.readAudioLink();
   res.write(JSON.stringify(links));
+  res.end();
+});
+
+app.get('/chat', async (req, res, next) => {
+  const details = await openAI.APIcall();
+  res.write(JSON.stringify(details));
   res.end();
 });
 
