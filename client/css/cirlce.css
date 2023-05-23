@@ -1,0 +1,47 @@
+
+
+#volume-container {
+    background-color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#volume-background {
+    width: 320px;
+    height: 320px;
+    background-color: var(--card-box-shadow-color);
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.quadrant {
+    width: 50%;
+    height: 50%;
+}
+
+#volume-bar {
+    position: relative;
+    width: 300px;
+    height: 20px;
+    background-color: lightgray;
+    margin-top: 20px;
+}
+
+#volume-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+#volume-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}

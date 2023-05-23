@@ -1,41 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Music Player</title>
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/cards.css">
+    <link rel="stylesheet" href="./css/pricing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Bad Volume Sliders</title>
+</head>
 <body>
+    <header class="header">
+        <h1 class="animated-heading">Bad Volume Sliders</h1>
+    </header>
 
-  <header>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="song">Songs</a></li>
-        <li><a href="volume">Volume Balancer</a></li>
-        <li><a href="stats">Song Stats</a></li>
-      </ul>
-    </nav>
-  </header>
+    <section class="pricing-section">
+      <div class="pricing-card">
+        <h3 class="plan-title">Basic Plan</h3>
+        <p class="plan-price">$9.99/month</p>
+        <ul class="plan-features">
+          <li>Feature 1</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+        </ul>
+        <button class="plan-button">Buy Now</button>
+      </div>
+      <div class="pricing-card">
+        <h3 class="plan-title">Premium Plan</h3>
+        <p class="plan-price">$19.99/month</p>
+        <ul class="plan-features">
+          <li>Feature 1</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+        </ul>
+        <button class="plan-button">Buy Now</button>
+      </div>
+      <div class="pricing-card">
+        <h3 class="plan-title">Ultimate Plan</h3>
+        <p class="plan-price">$3000.99/month</p>
+        <ul class="plan-features">
+          <li>Feature 1</li>
+          <li>Feature 2</li>
+          <li>Feature 3</li>
+        </ul>
+        <button class="plan-button">Buy Now</button>
+      </div>
+    </section>
 
-  <h1>Music Player</h1>
-  <h2>List of Songs</h2>
-  <ul id="songList">
-    <li><a href="song?id=1">Song 1</a></li>
-    <li><a href="song?id=2">Song 2</a></li>
-    <li><a href="song?id=3">Song 3</a></li>
-    <li><a href="song?id=4">Song 4</a></li>
-  </ul>
+    <div class="toggle-container">
+      <label class="toggle-label">Dark Mode</label>
+      <div class="toggle-switch"></div>
+    </div>
 
-  <form id="addSongForm">
-    <label for="songFile">Upload Song:</label>
-    <input type="file" id="songFile" accept="audio/mpeg">
-    <button type="submit">Add Song</button>
-  </form>
+    <div class="card-grid">
+      <div class="card">
+        <img src="./images/balancer.jpg" alt="Card 1">
+        <h2>Card 1</h2>
+      </div>
+      <a href="./cirlce.html">
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 2">
+            <h2>Circular Volume Balancer</h2>
+        </div>
+      </a>
 
-  <button onclick="getVolumeSliderDetails()"> hello </button>
+      <a href="./ImageBalancer.html">
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 3">
+            <h2>Image Volume Balancer</h2>
+        </div>
+      </a>
+      
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 4">
+            <h2>Card 4</h2>
+        </div>
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 5">
+            <h2>Card 5</h2>
+        </div>
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 6">
+            <h2>Card 6</h2>
+        </div>
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 7">
+            <h2>Card 7</h2>
+        </div>
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 8">
+            <h2>Card 8</h2>
+        </div>
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 9">
+            <h2>Card 9</h2>
+        </div>
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 10">
+            <h2>Card 10</h2>
+        </div>
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 11">
+            <h2>Card 11</h2>
+        </div>
+        <div class="card">
+            <img src="./images/balancer.jpg" alt="Image 12">
+            <h2>Card 12</h2>
+        </div>
+    </div>
 
-  <script type="module" src="./src/index.js"></script>
-
+    <script src="./js/script.js"></script>
 </body>
 </html>
