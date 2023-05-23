@@ -1,6 +1,5 @@
 const express = require('express');
 const dbHandler = require("./server/src/dbHandler");
-const openAI = require("./server/src/openAI");
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -32,12 +31,6 @@ app.post('/volumeslider/update/click', async (req, res, next) => {
 app.post('/volumeslider/review', async (req, res, next) => {
   const result = await dbHandler.createVolumeSliderReview(req.body["name"], req.body["review"], req.body["rating"]);
   res.write(JSON.stringify(result));
-  res.end();
-});
-
-app.get('/chat', async (req, res, next) => {
-  const details = await openAI.APIcall();
-  res.write(JSON.stringify(details));
   res.end();
 });
 
