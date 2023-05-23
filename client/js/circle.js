@@ -1,7 +1,5 @@
 let prevAngle = 0; 
 
-
-
 function setVolume(event) {
     var volumeContainer = document.getElementById("volume-container");
     var volumeBar = document.getElementById("volume-bar");
