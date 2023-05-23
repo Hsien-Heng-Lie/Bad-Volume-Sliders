@@ -5,7 +5,6 @@
         <link rel="stylesheet" type="text/css" href="./css/cirlce.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <link rel="stylesheet" type="text/css" href="./css/volume-slider.css">
-
         <script src="./js/circle.js"></script>
         <body>
    
@@ -14,12 +13,11 @@
         </head>
             <input id="volume" type="range" class="slider">
             <p id="value">Value:</p>
-
-
-            <audio id="audio-player" src="../../../Music/purrple-cat-green-tea.mp3"></audio>
+            <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3" controls></audio>
             <div class="controls">
-                <button id="play-button">Play</button>
-                <button id="pause-button">Pause</button>
+                <button id="play-button" onclick="playSong()">Play</button>
+                <button id="pause-buttonon" onclick="pauseSong()">Pause</button>
+                <button id="pause-buttonon" onclick="stopSong()">Stop</button>
               </div>
             <div id="volume-container" onclick="setVolume(event)">
                 <div id="volume-bar">
@@ -30,8 +28,7 @@
             <Form>
 
             </Form>
-
+            <script src="./js/song.js"></script>
         </body>
     </head>
 </html>
-<script src="../public/js/volume-slider.js"></script>
