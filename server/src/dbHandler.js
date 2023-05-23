@@ -1,4 +1,4 @@
-const sql = require("mssql/msnodesqlv8");
+const sql = require("mssql");
 const dbConnect = require('./dbConnectService');
 
 async function readVolumerSlider() {
@@ -15,6 +15,8 @@ async function readVolumerSlider() {
  INNER JOIN [dbo].[VolumeSliderClicks] AS vsc
  ON vsc.VolumeSliderId = vs.Id
  ORDER BY [Row] ASC`;
+
+ 
 
   const result = await request.query(query);
   return result.recordset;

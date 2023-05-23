@@ -1,33 +1,47 @@
-:root {
-    --color-primary-500: #ff4081;
-    --color-primary-600: #c73766;
-    --color-primary-700: #922e4c;
-    --color-primary-800: #602334;
-    --color-primary-900: #32171d;
-    --white-color : #ffffff;
-  }
+
 
 #volume-container {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    cursor: pointer;
-    background-color:var(--white-color) ;
+    background-color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#volume-background {
+    width: 320px;
+    height: 320px;
+    background-color: var(--card-box-shadow-color);
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.quadrant {
+    width: 50%;
+    height: 50%;
 }
 
 #volume-bar {
-    width: 100%;
-    height: 10px;
-    background-color: #ccc;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform-origin: center;
-    transition: transform 0.2s ease;
+    position: relative;
+    width: 300px;
+    height: 20px;
+    background-color: lightgray;
+    margin-top: 20px;
 }
 
 #volume-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    background-color: var(--color-primary-600);
-    width: 0%;
+    background-color: var(--primary-color);
+}
+
+#volume-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
 }
