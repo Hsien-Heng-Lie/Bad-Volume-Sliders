@@ -10,10 +10,6 @@ const server = app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
 });
 
-//any other public page
-app.use(express.static('./client', {extensions:['html']}));
-app.use(bodyParser.json())
-
 //logs all methods to console
 app.use('*', (req, res, next) => {
   console.log(`${req.method} on ${req.originalUrl}`);
@@ -49,6 +45,10 @@ app.get('/chat', async (req, res, next) => {
 app.get('/', function(req, res){
   res.sendFile('index.html', { root: './client' , extensions:['html'] });
 });
+
+//any other public page
+app.use(express.static('./client', {extensions:['html']}));
+app.use(bodyParser.json())
 
 //any other routes go here
 app.get('*', function(req, res){

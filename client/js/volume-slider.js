@@ -6,3 +6,6 @@ slider.oninput = function() {
   output.innerHTML = this.value;
   console.log(slider.value)
 }
+
+
+//TODO: unused
