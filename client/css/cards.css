@@ -1,0 +1,50 @@
+/* Add card-related styles here */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    animation: fadeIn 1s;
+  }
+  
+  .card {
+    text-decoration: none;
+    text-align: center;
+    color: var(--card-text-color);
+    opacity: 0;
+    animation: fadeIn 1s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+    background-color: var(--card-background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px var(--card-box-shadow-color);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: var(--card-hover-transform);
+    box-shadow: 0 4px 8px var(--card-hover-box-shadow-color);
+    border-radius: var(--card-hover-border-radius);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 75%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .card h2 {
+    font-size: 18px;
+    margin-top: 0;
+    line-height: 1.2;
+  }
+  
+  .card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+  }
+  
+  
