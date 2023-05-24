@@ -37,7 +37,7 @@ app.post('/volumeslider/review', async (req, res) => {
 
 app.get('/chat/:prompt', async (req, res) => {
   const details = await openAI.APIcall(req.params.prompt);
-  res.write(JSON.stringify(details));
+  res.write(details);
   res.end();
 });
 

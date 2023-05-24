@@ -25,9 +25,6 @@ function pauseAudio() {
 }
 
 async function aiCall() {
-  console.log(aiInput.value);
   const response = await fetch('chat/hello');
-  console.log(response.json())
-  // const responseJson = await response.json();
-  // aiLabel.innerText = responseJson;
+  console.log(response);
 }
