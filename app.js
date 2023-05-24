@@ -27,6 +27,12 @@ app.get('/volumeslider/details', async (req, res, next) => {
   res.end();
 });
 
+app.get('/volumeslider/reviews', async (req, res, next) => {
+  const details = await dbHandler.readVolumerSliderReviews();
+  res.write(JSON.stringify(details));
+  res.end();
+});
+
 app.post('/volumeslider/update/click', async (req, res, next) => {
   const result = await dbHandler.updateVolumeSliderClick(req.body["name"]);
   res.write(JSON.stringify(result));
