@@ -8,6 +8,7 @@ async function getVolumeSliderDetails(){
 };
 
 function selectVolumeSlider(name){
+  console.log(name);
   dbInterface.incrementVolumeSliderClicks(name);
 };
 
