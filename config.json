@@ -5,6 +5,5 @@
     "settings" : "Integrated Security = True;",
     "user" : "bvsadmin",
     "password" : "bvsadmin123"
-  },
-  "openaiAPIKey" : "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"
+  }
 }

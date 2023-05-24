@@ -5,7 +5,6 @@
         <link rel="stylesheet" type="text/css" href="./css/circle.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <link rel="stylesheet" type="text/css" href="./css/volume-slider.css">
-        <script src="./js/ai.js"></script>
         <body>
 
             <h1>Chatbot Volume Slider</h1>
@@ -15,10 +14,17 @@
             <p id="value">Value:</p>
             <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3" controls></audio>
             <div class="controls">
-                <button id="play-button" onclick="playSong()">Play</button>
-                <button id="pause-buttonon" onclick="pauseSong()">Pause</button>
-                <button id="pause-buttonon" onclick="stopSong()">Stop</button>
+                <button id="play-button">Play</button>
+                <button id="pause-button">Pause</button>
               </div>
         </body>
+
+        <section>
+            <button id="chatbot-button">Ask AI!</button>
+            <input type="text" id="prompt-input" size="100"/>
+        </section>
+        <label id="ai-label">Response</label>
+
+        <script src="./js/ai.js"></script>
     </head>
 </html>
