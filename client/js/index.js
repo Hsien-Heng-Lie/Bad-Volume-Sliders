@@ -7,27 +7,6 @@ toggleSwitch.addEventListener('click', function() {
   body.classList.toggle('dark-mode');
 });
 
-// Add this code within your script.js file
-
-// Get the play and pause buttons
-const playButton = document.getElementById('play-button');
-const pauseButton = document.getElementById('pause-button');
-
-// Add event listeners to the buttons
-playButton.addEventListener('click', playAudio);
-pauseButton.addEventListener('click', pauseAudio);
-
-// Function to play the audio
-function playAudio() {
-  audioElement.play();
-}
-
-// Function to pause the audio
-function pauseAudio() {
-  audioElement.pause();
-}
-
-
 const cards = document.querySelectorAll('.card');
 
 cards.forEach(card => {
