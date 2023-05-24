@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="./css/cards.css">
     <link rel="stylesheet" href="./css/pricing.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
     <title>Bad Volume Sliders</title>
+
 </head>
 <body>
     <header class="header">
@@ -51,22 +53,23 @@
       <label class="toggle-label">Dark Mode</label>
       <div class="toggle-switch"></div>
     </div>
-
     <div class="card-grid">
       <div class="card">
         <img src="./assets/images/balancer.jpg" alt="Card 1">
         <h2>Card 1</h2>
       </div>
-      <a href="./circle">
+      <a href="./circle"
+        onclick="selectVolumeSlider('Circle')">
         <div class="card">
             <img src="./assets/images/balancer.jpg" alt="Image 2">
             <h2>Circular Volume Balancer</h2>
         </div>
       </a>
 
-      <a href="./ImageBalancer">
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 3">
+      <a href="./imageBalancer"
+        onclick="selectVolumeSlider('Image Balancer')">
+        <div class = "card">
+            <img src="./images/balancer.jpg" alt="Image 3">
             <h2>Image Volume Balancer</h2>
         </div>
       </a>
@@ -108,7 +111,7 @@
             <h2>Card 12</h2>
         </div>
     </div>
-
-    <script src="./js/index.js"></script>
+    <script src="./js/script.js"></script>
+    <script type="module" src="./js/utils.js"></script>
 </body>
 </html>
