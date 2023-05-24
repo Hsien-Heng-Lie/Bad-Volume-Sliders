@@ -16,8 +16,7 @@
 
     <input type="file" id="image-upload" accept="jpg">
     <canvas id="image-canvas"></canvas>
-
-    
+  
     <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3" ></audio>
     <div class="controls">
       <button id="play-button" onclick="playSong()">Play</button>
@@ -32,7 +31,7 @@
       </div>
     </div>
 
-      <form>
+      <form id="review-form">
         <div class="form-group">
           <label for="review">Review:</label>
           <textarea id="review" name="review" required></textarea>
@@ -49,7 +48,6 @@
         </div>
         <button type="submit">Submit</button>
       </form>
-
       <script src="./js/song.js"></script>
       <script src="./js/script.js"></script>
       <script src="./js/imageBalancer.js"></script>

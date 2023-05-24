@@ -1,4 +1,24 @@
-let prevAngle = 0; 
+const audioElement = document.getElementById('audio-player');
+
+// Get the play and pause buttons
+const playButton = document.getElementById('play-button');
+const pauseButton = document.getElementById('pause-button');
+
+// Add event listeners to the buttons
+playButton.addEventListener('click', playAudio);
+pauseButton.addEventListener('click', pauseAudio);
+
+// Function to play the audio
+function playAudio() {
+  audioElement.play();
+}
+
+// Function to pause the audio
+function pauseAudio() {
+  audioElement.pause();
+}
+
+let prevAngle = 0;
 
 function setVolume(event) {
     var volumeContainer = document.getElementById("volume-container");
@@ -18,7 +38,7 @@ function setVolume(event) {
     // Set the volume of the audio player
     var audioPlayer = document.getElementById("audio-player");
     audioPlayer.volume = newVolume;
-    let diff = Math.abs(prevAngle + angle); 
+    let diff = Math.abs(prevAngle + angle);
     // Update the rotation of the volume bar to reflect the current volume
     volumeBar.style.transform = "rotate(" + diff + "rad)";
 
@@ -26,5 +46,5 @@ function setVolume(event) {
     volumeFill.style.width = (newVolume * 100) + "%";
     output.innerHTML = Math.round(newVolume * 100);
     slider.value = newVolume * 100
-  
+
 }
