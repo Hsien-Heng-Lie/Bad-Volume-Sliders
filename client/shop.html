@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/shop.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+      
+      <title>Bad Volume Sliders Shop</title>
+
+  </head>
+  <body>
+    
+    <header class="header">
+      <h1 class="animated-heading">Bad Volume Sliders Secure Shop</h1>
+    </header>
+    <section class="credit-input">
+      <form>
+        <label for="cards">Credit Card</label>
+        <section>
+          <select name="cards" id="cards" required>
+            <option value="visa">VISA</option>
+            <option value="mc">Master Card</option>
+            <option value="amex">American Express</option>
+            <option value="dc">Diners Club</option>
+          </select>
+        </section>
+        <label for="card-number">Card Number</label><br>
+        <input class= "number-input" id="card-number1" name="card-number1" 
+        type="text" pattern="\d*" 
+        minlength="4" 
+        maxlength="4" 
+        required>
+        <input class= "number-input" id="card-number2" name="card-number2" 
+        type="text" pattern="\d*" 
+        minlength="4" 
+        maxlength="4" 
+        required>
+        <input class= "number-input" id="card-number3" name="card-number3" 
+        type="text" pattern="\d*" 
+        minlength="4" 
+        maxlength="4" 
+        required>
+        <input class= "number-input" id="card-number4" name="card-number4" 
+        type="text" pattern="\d*" 
+        minlength="4" 
+        maxlength="4" 
+        required>
+        <br>
+        <label for="CVV">CVV</label><br>
+        <input class= "number-input" id="CVV" name="CVV" 
+        type="text" pattern="\d*" 
+        minlength="3" 
+        maxlength="4" 
+        required><br>
+
+        <label for="expiry">Expiry Date</label><br>
+        <input class= "date-input" type="month" id="expiry" name="expiry" required><br>
+
+        <button>Submit</button>
+      </form> 
+    </section>
+  </body>
+</html>

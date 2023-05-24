@@ -1,0 +1,55 @@
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+input:valid {
+  background-color: rgb(181, 253, 181);
+}
+
+input:invalid {
+  background-color: rgb(255, 152, 152);
+}
+
+.date-input{
+  border-radius: 0.3rem;
+  border-style: groove;
+  border-color: rgb(196, 196, 196);
+  box-sizing: border-box;
+  font-size: medium;
+  padding: auto;
+  text-align: center;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+select{
+  border-radius: 0.3rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: large;
+  max-width: 10%;
+  padding: auto;
+  text-align: center;
+  align-self: center;
+}
+option{
+  border-radius: 0.3rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: large;
+  max-width: 10%;
+  padding: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.number-input{
+  border-radius: 0.3rem;
+  border-style: groove;
+  border-color: rgb(196, 196, 196);
+  box-sizing: border-box;
+  font-size: large;
+  max-width: 10%;
+  padding: auto;
+  text-align: center;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
