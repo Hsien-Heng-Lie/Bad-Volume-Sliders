@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/cards.css">
     <link rel="stylesheet" href="./css/pricing.css">
+    <link rel="stylesheet" href="./css/volume-collection.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <title>Bad Volume Sliders</title>
 
@@ -14,52 +15,57 @@
     <header class="header">
         <h1 class="animated-heading">Bad Volume Sliders</h1>
     </header>
+    <div class="topnav" id="myTopnav">
+      <a href="./index.html" class="active">Home</a>
+      <a href="./review.html">Review</a>
+      <a href="./stats.html">Stats</a>
+
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
     <section class="pricing-section">
       <a class="pricing-card"
         href="./shop">
         <h3 class="plan-title">Basic Plan</h3>
         <p class="plan-price">$9.99/month</p>
         <ul class="plan-features">
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <li>Feature 3</li>
+          <li>Basic control</li>
+          <li>Up to 50% Volume</li>
+          <li>Third Party Ads</li>
         </ul>
-        <button class="plan-button">Buy Now</button>
+        <button>Buy Now</button>
       </a>
       <a class="pricing-card"
       href="./shop">
         <h3 class="plan-title">Premium Plan</h3>
         <p class="plan-price">$19.99/month</p>
         <ul class="plan-features">
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <li>Feature 3</li>
+          <li>Premium control</li>
+          <li>Up to 75% Volume</li>
+          <li>Future Volume Slider Sneak Peak</li>
         </ul>
-        <button class="plan-button">Buy Now</button>
+        <button>Buy Now</button>
       </a>
       <a class="pricing-card"
       href="./shop">
         <h3 class="plan-title">Ultimate Plan</h3>
         <p class="plan-price">$3000.99/month</p>
         <ul class="plan-features">
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <li>Feature 3</li>
+          <li>Ultimate control</li>
+          <li>Full from 300% Volume Control</li>
+          <li>Host your Ads on our network websites</li>
         </ul>
-        <button class="plan-button">Buy Now</button>
+        <button>Buy Now</button>
       </a>
     </section>
 
-    <div class="toggle-container">
-      <label class="toggle-label">Dark Mode</label>
-      <div class="toggle-switch"></div>
-    </div>
     <div class="card-grid">
 
       <a href="./chatbot"
       onclick="selectVolumeSlider('Chatbot')">
         <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 1">
+            <img src="https://em-content.zobj.net/source/microsoft-teams/337/robot_1f916.png" alt="Image 1">
             <h2>Chatbot Volume Balancer</h2>
         </div>
       </a>
@@ -67,7 +73,7 @@
       <a href="./circle"
       onclick="selectVolumeSlider('Circle')">
         <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 2">
+            <img src="https://em-content.zobj.net/source/microsoft-teams/363/compass_1f9ed.png" alt="Image 2">
             <h2>Circular Volume Balancer</h2>
         </div>
       </a>
@@ -75,7 +81,7 @@
       <a href="./imageBalancer"
         onclick="selectVolumeSlider('Image Balancer')">
         <div class = "card">
-            <img src="./assets/images/balancer.jpg" alt="Image 3">
+            <img src="https://em-content.zobj.net/source/microsoft-teams/363/camera-with-flash_1f4f8.png" alt="Image 3">
             <h2>Image Volume Balancer</h2>
         </div>
       </a>
@@ -83,42 +89,18 @@
       <a href="./flappyBox"
       onclick="selectVolumeSlider('Flappy Box')">
         <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 4">
+            <img src="https://em-content.zobj.net/source/microsoft-teams/363/backhand-index-pointing-down_1f447.png" alt="Image 4">
             <h2>Flappy Box</h2>
         </div>
       </a>
+
+      <a href="./ad"
+      onclick="selectVolumeSlider('Freemium(Ad) balancer')">
         <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 5">
-            <h2>Card 5</h2>
+            <img src="https://em-content.zobj.net/source/microsoft-teams/363/love-letter_1f48c.png" alt="Image 4">
+            <h2>Freemium</h2>
         </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 6">
-            <h2>Card 6</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 7">
-            <h2>Card 7</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 8">
-            <h2>Card 8</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 9">
-            <h2>Card 9</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 10">
-            <h2>Card 10</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 11">
-            <h2>Card 11</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 12">
-            <h2>Card 12</h2>
-        </div>
+      </a>
     </div>
 
     <script type="module" src="./js/index.js"></script>

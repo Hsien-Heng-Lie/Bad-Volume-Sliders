@@ -1,12 +1,16 @@
 
 const imageUpload = document.getElementById('image-upload');
 const imageCanvas = document.getElementById('image-canvas');
-const audioPlayer = document.getElementById('audio-player');
+const audioElement = document.getElementById('audio-player');
+
+// const audioDisplay = document.getElementById('audio-display');
 
 imageUpload.addEventListener('change', handleImageUpload);
 
 function handleImageUpload(event) {
   const file = event.target.files[0];
+  let volumeLabel = document.getElementById('volume-label');
+  let volumeSlider = document.getElementById('volume-slider');
 
   if (file) {
     // Read the file as data URL
@@ -31,8 +35,9 @@ function handleImageUpload(event) {
         // Set the volume based on the average RGB value
         const maxVolume = 100; // Adjust this value to set the maximum volume
         const volume = Math.round((averageRGB / 255) * maxVolume);
-        console.log(volume)
-        audioPlayer.volume = volume / maxVolume;
+        volumeSlider = volume
+        volumeLabel.innerHTML = `Current volume: ${volume}%`; 
+        audioElement.volume = volume / maxVolume;
       };
       image.src = e.target.result;
     };

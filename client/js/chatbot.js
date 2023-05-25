@@ -1,4 +1,3 @@
-
 const audioPlayer = document.getElementById('audio-player');
 const chatbotButton = document.getElementById('chatbot-button');
 const chatbotResponseLabel = document.getElementById('ai-label');

@@ -1,5 +1,5 @@
 const audio = document.getElementById("audio-player");
-const output = document.getElementById("value");
+
 let myGamePiece;
 
 
@@ -19,7 +19,7 @@ const myGameArea = {
         this.canvas.height = canvasHeight;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[10]);
-        this.interval = setInterval(updateGameArea, 25);        
+        this.interval = setInterval(updateGameArea, 25);     
     },
     stop : function() {
         clearInterval(this.interval);
@@ -76,11 +76,12 @@ function slider(width, height, color, x, y, type) {
 }
 
 function updateGameArea() {
+    let output = document.getElementById("volume-label");
     myGameArea.clear();
     myGamePiece.newPos();
     myGamePiece.update();
     audio.volume = myGamePiece.volume;
-    output.innerHTML = Math.round(myGamePiece.volume * 100);
+    output.innerHTML = `Current volume: ${Math.round(myGamePiece.volume * 100)}%`;
 }
 
 function accelerate() {

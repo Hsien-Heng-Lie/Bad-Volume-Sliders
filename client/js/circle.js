@@ -26,7 +26,7 @@ function setVolume(event) {
 
     // Update the width of the volume fill element
     volumeFill.style.width = (newVolume * 100) + "%";
-    volumeLabel.innerHTML = Math.round(newVolume * 100);
+    volumeLabel.innerHTML = `Current volume: ${Math.round(newVolume * 100)}%`; 
     volumeSlider.value = newVolume * 100
 
 }

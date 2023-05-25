@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/imageBalancer.css">
+    <link rel="stylesheet" href="./css/rating.css">
+    <link rel="stylesheet" type="text/css" href="./css/volume-slider.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Bad Volume Sliders</title>
+</head>
+<body onload="getSliderNames()">
+    <header class="header">
+        <h1 class="animated-heading">Bad Volume Slider Review</h1>
+    </header>
+    
+    <form id="review-form">
+
+        <select id="dropdown">
+        </select>
+
+        <div class="form-group">
+          <label for="review">Review:</label>
+          <textarea id="review" name="review" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating:</label>
+
+          <div class="rating-container">
+            <span class="star" data-rating="1">&#9733;</span>
+            <span class="star" data-rating="2">&#9733;</span>
+            <span class="star" data-rating="3">&#9733;</span>
+            <span class="star" data-rating="4">&#9733;</span>
+            <span class="star" data-rating="5">&#9733;</span>
+          </div>
+
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+
+      <script type="module" src="./js/rating.js"></script>
+      <script src="./js/imageBalancer.js"></script>
+      <script src="./js/common/audioControls.js"></script>
+
+</body>
+</html>

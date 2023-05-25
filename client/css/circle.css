@@ -1,13 +1,16 @@
 
 
 #volume-container {
-    background-color: black;
-
+    border-style: double solid double solid;
+    border-width: 0.8rem;
+    border-color: var(--compass-border);
+    background-color: rgb(0, 0, 0);
+    border-radius: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 19rem;
 }
 
 #volume-background {
@@ -29,7 +32,6 @@
     width: 300px;
     height: 20px;
     background-color: lightgray;
-    margin-top: 20px;
 }
 
 #volume-fill {
