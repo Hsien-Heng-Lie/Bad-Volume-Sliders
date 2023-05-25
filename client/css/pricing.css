@@ -29,6 +29,7 @@
 }
 
 .plan-price {
+  color: var(--price-color);
   font-size: 18px;
   margin-top: 10px;
 }

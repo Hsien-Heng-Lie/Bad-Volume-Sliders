@@ -10,11 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <title>Bad Volume Sliders</title>
 </head>
-<body onload="getSliderNames()">
+<body>
     <header class="header">
         <h1 class="animated-heading">Image Volume Balancer</h1>
     </header>
-    <input id="volume-slider" type="range" class="slider" value="100">
+    <input id="volume-slider" type="range" class="slider" value="100" hidden>
     <p id="volume-label">Current volume: 100%</p>
     
     <input type="file" id="image-upload" accept="jpg">
@@ -22,37 +22,14 @@
   
     <audio id="audio-player" src=".//assets/purrple-cat-green-tea.mp3" ></audio>
     <div class="controls">
+
       <button id="play-button">Play</button>
       <button id="pause-button">Pause</button>
       <button id="stop-button">Stop</button>
       </div>
-    <form id="review-form">
 
-        <select id="dropdown">
-        </select>
-
-        <div class="form-group">
-          <label for="review">Review:</label>
-          <textarea id="review" name="review" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="rating">Rating:</label>
-
-          <div class="rating-container">
-            <span class="star" data-rating="1">&#9733;</span>
-            <span class="star" data-rating="2">&#9733;</span>
-            <span class="star" data-rating="3">&#9733;</span>
-            <span class="star" data-rating="4">&#9733;</span>
-            <span class="star" data-rating="5">&#9733;</span>
-          </div>
-
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      <script type="module" src="./js/rating.js"></script>
       <script src="./js/imageBalancer.js"></script>
       <script src="./js/common/audioControls.js"></script>
-      <script src="./js/common/rating.js"></script>
 
 </body>
 </html>
