@@ -1,10 +1,6 @@
 
 const audioElement = document.getElementById('audio-player');
 
-// Get the play and pause buttons
-const playButton = document.getElementById('play-button');
-const pauseButton = document.getElementById('pause-button');
-
 const aiButton = document.getElementById('chatbot-button');
 const aiLabel = document.getElementById('ai-label');
 const volumeLabel = document.getElementById('value');
@@ -12,21 +8,9 @@ const aiInput = document.getElementById('prompt-input');
 const volumeSlider = document.getElementById('volume');
 
 // Add event listeners to the buttons
-playButton.addEventListener('click', playAudio);
-pauseButton.addEventListener('click', pauseAudio);
 aiButton.addEventListener('click', aiCall);
 volumeSlider.addEventListener('input', volumeSliderUpdate);
 volumeSlider.addEventListener('change', volumeSliderUpdate);
-
-// Function to play the audio
-function playAudio() {
-  audioElement.play();
-}
-
-// Function to pause the audio
-function pauseAudio() {
-  audioElement.pause();
-}
 
 function volumeSliderUpdate() {
   updateVolume(parseInt(volumeSlider.value));

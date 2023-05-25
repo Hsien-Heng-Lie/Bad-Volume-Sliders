@@ -12,10 +12,11 @@
         </head>
             <input id="volume" type="range" class="slider">
             <p id="value">Current volume: 100%</p>
-            <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3" controls></audio>
+            <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3"></audio>
             <div class="controls">
                 <button id="play-button">Play</button>
-                <button id="pause-button">Pause</button>
+                <button id="pause-button" >Pause</button>
+                <button id="stop-button">Stop</button>
               </div>
         </body>
 
@@ -26,5 +27,6 @@
         <label id="ai-label"></label>
 
         <script src="./js/ai.js"></script>
+        <script src="./js/audioControls.js"></script>
     </head>
 </html>
