@@ -5,5 +5,8 @@
     "settings" : "Integrated Security = True;",
     "user" : "bvsadmin",
     "password" : "bvsadmin123"
+  },
+  "crypt" :{
+    "algo" : "aes-256-cbc"
   }
 }

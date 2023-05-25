@@ -47,6 +47,17 @@ async function createVolumeSliderReview(name, review, rating) {
   return result.output;
 };
 
+async function readKey(name) {
+  const n = 'OpenAI';
+  const conn = await dbConnect
+  const request = new sql.Request(conn);
+  //const query = 'EXEC [dbo].[sp_ReadKey] @Name = \'' + name
+  const query = 'EXEC	[dbo].[sp_ReadKey] @Name = \'' + n + '\''; 
+  const result = await request.query(query);
+  return result.recordset;
+};
+
+
 
 module.exports = {
   readVolumerSlider: function(){
@@ -60,5 +71,8 @@ module.exports = {
   },
   createVolumeSliderReview: function(name, review, rating){
     return createVolumeSliderReview(name, review, rating);
+  },
+  readKey: function(name){
+    return readKey(name);
   }
 };

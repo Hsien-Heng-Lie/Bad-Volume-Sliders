@@ -3,6 +3,8 @@ const audioPlayer = document.getElementById('audio-player');
 const chatbotButton = document.getElementById('chatbot-button');
 const chatbotResponseLabel = document.getElementById('ai-label');
 const chatbotInput = document.getElementById('prompt-input');
+const volumeLabel = document.getElementById('volume-label');
+const volumeSlider = document.getElementById('volume-slider');
 
 chatbotButton.addEventListener('click', generateAIResponse);
 
@@ -30,7 +32,7 @@ async function generateAIResponse() {
   const prompt = `The current volume is ${audioPlayer.volume * 100}. The volume may not be lower than 0 or greater than 100. ${userPrompt} What is the volume now?`;
   const response = await fetch(`chat/${encodeURIComponent(prompt)}`);
   const parsedResponse = await response.json();
-  aiLabel.innerText = parsedResponse;
+  chatbotResponseLabel.innerText = parsedResponse;
   const newVolume = parseVolume(parsedResponse + ' ');
   updateVolume(newVolume);
 }
