@@ -1,7 +1,8 @@
 // Get the elements
 const imageUpload = document.getElementById('image-upload');
 const imageCanvas = document.getElementById('image-canvas');
-const audioElement = document.getElementById('idAudio');
+const audioElement = document.getElementById('audio-player');
+const audioDisplay = document.getElementById('audio-display');
 
 // Get the play and pause buttons
 const playButton = document.getElementById('play-button');
@@ -52,6 +53,7 @@ function handleImageUpload(event) {
         const maxVolume = 100; // Adjust this value to set the maximum volume
         const volume = Math.round((averageRGB / 255) * maxVolume);
         console.log(volume)
+        audioDisplay.innerHTML = volume
         audioElement.volume = volume / maxVolume;
       };
       image.src = e.target.result;

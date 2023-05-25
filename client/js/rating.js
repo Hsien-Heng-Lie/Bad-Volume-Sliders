@@ -1,34 +1,40 @@
-// Add this code within your script.js file
+import * as dbInterface from './dbInterface.js';
 
-// Get the form element
 const reviewForm = document.getElementById('review-form');
-
-// Add submit event listener to the form
-reviewForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // Get the form values
-  const review = document.getElementById('review').value;
-  const rating = document.querySelector('.star.checked').getAttribute('data-rating');
-
-  // Save the form data in variables
-  console.log('Review:', review);
-  console.log('Rating:', rating);
-});
-
-// Get all star elements
+let selectedRating = 0;
 const stars = document.querySelectorAll('.star');
 
-// Add click event listeners to the stars
-stars.forEach(function(star) {
-  star.addEventListener('click', function() {
-    // Toggle the checked class on the clicked star
-    this.classList.toggle('checked');
+function reviewVolumeSlider(name, review, rating){
+  dbInterface.reviewVolumeSlider(name, review, rating);
+};
 
-    // Toggle the checked class on the previous stars
-    const previousStars = Array.from(this.parentElement.children).slice(0, Number(this.getAttribute('data-rating')));
-    previousStars.forEach(function(prevStar) {
-      prevStar.classList.toggle('checked');
-    });
+reviewForm.addEventListener('submit', function(event) {
+  event.preventDefault(); 
+
+  const review = document.getElementById('review').value;
+  const rating = selectedRating;
+
+  console.log('Review:', review);
+  console.log('Rating:', rating);
+
+  reviewVolumeSlider("kyles",review, rating);
+});
+
+stars.forEach(function(star) {
+
+  star.addEventListener('click', function() {
+    const rating = parseInt(this.getAttribute('data-rating'));
+
+    for (let i = 0; i < stars.length; i++) {
+      if (i < rating) {
+        stars[i].classList.add('active');
+      } else {
+        stars[i].classList.remove('active');
+      }
+    }
+
+    selectedRating = rating;
   });
 });
+
+window.reviewVolumeSlider = reviewVolumeSlider;
