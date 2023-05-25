@@ -1,24 +1,48 @@
-import * as dbInterface from './dbInterface.js';
+import * as dbInterface from './common/dbInterface.js';
 
 const reviewForm = document.getElementById('review-form');
-let selectedRating = 0;
 const stars = document.querySelectorAll('.star');
+const dropdown = document.getElementById("dropdown");
+let review = document.getElementById('review').value
+let selectedRating = 0;
 
 function reviewVolumeSlider(name, review, rating){
   dbInterface.reviewVolumeSlider(name, review, rating);
 };
 
+async function getSliderNames(){
+  const volumeSliderNames = await dbInterface.listVolumeSliderDetails();
+  volumeSliderNames.forEach(element => {
+    let option = document.createElement("option");
+    option.text = element.Name;
+    dropdown.add(option);
+  })
+}
+
 reviewForm.addEventListener('submit', function(event) {
   event.preventDefault(); 
 
-  const review = document.getElementById('review').value;
   const rating = selectedRating;
+  reviewVolumeSlider(dropdown.value,review, rating);
+  clearFields();
 
-  console.log('Review:', review);
-  console.log('Rating:', rating);
-
-  reviewVolumeSlider("kyles",review, rating);
 });
+
+
+function clearFields(){
+  var frm = document.getElementById('review-form');
+  frm.reset();
+
+  stars.forEach(function(star) {
+    const rating = parseInt(star.getAttribute('data-rating'));
+  
+    for (let i = 0; i < stars.length; i++) {
+      stars[i].classList.remove('active');
+    }
+    
+    selectedRating = rating;
+  });
+}
 
 stars.forEach(function(star) {
 
@@ -38,3 +62,4 @@ stars.forEach(function(star) {
 });
 
 window.reviewVolumeSlider = reviewVolumeSlider;
+window.getSliderNames = getSliderNames;

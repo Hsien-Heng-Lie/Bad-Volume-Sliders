@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/flappyBox.css">
+  <link rel="stylesheet" type="text/css" href="./css/volume-slider.css">
+  <title>Clicky Volume Balancer</title>
+  </head>
+  
+
+  <body onload="startGame()">
+    <input id="volume" type="range" class="slider">
+    <header class="header">
+      <h1 class="animated-heading">Clicky Volume Balancer</h1>
+    </header>
+    <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3" ></audio>
+    
+    <p id="volume-label">Current volume: 100%</p>
+
+    <span class="controls">
+      <button id="play-button" onclick="playSong()">Play</button>
+      <button id="pause-button" onclick="pauseSong()">Pause</button>
+      <button id="stop-button" onclick="stopSong()">Stop</button>
+    </span>   
+
+    <section> 
+      <button onclick="accelerate()">!!Click Here!!</button>
+    </section>
+
+    <script src="./js/flappyBox.js"></script> 
+  </body>
+</html>

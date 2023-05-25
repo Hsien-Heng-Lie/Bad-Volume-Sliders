@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./css/pricing.css">
     <link rel="stylesheet" href="./css/volume-collection.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    
     <title>Bad Volume Sliders</title>
 
 </head>
@@ -16,9 +15,18 @@
     <header class="header">
         <h1 class="animated-heading">Bad Volume Sliders</h1>
     </header>
-
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="active">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
     <section class="pricing-section">
-      <div class="pricing-card">
+      <a class="pricing-card"
+        href="./shop">
         <h3 class="plan-title">Basic Plan</h3>
         <p class="plan-price">$9.99/month</p>
         <ul class="plan-features">
@@ -27,8 +35,9 @@
           <li>Feature 3</li>
         </ul>
         <button class="plan-button">Buy Now</button>
-      </div>
-      <div class="pricing-card">
+      </a>
+      <a class="pricing-card"
+      href="./shop">
         <h3 class="plan-title">Premium Plan</h3>
         <p class="plan-price">$19.99/month</p>
         <ul class="plan-features">
@@ -37,8 +46,9 @@
           <li>Feature 3</li>
         </ul>
         <button class="plan-button">Buy Now</button>
-      </div>
-      <div class="pricing-card">
+      </a>
+      <a class="pricing-card"
+      href="./shop">
         <h3 class="plan-title">Ultimate Plan</h3>
         <p class="plan-price">$3000.99/month</p>
         <ul class="plan-features">
@@ -47,16 +57,21 @@
           <li>Feature 3</li>
         </ul>
         <button class="plan-button">Buy Now</button>
-      </div>
+      </a>
     </section>
 
     <div class="card-grid">
-      <div class="card">
-        <img src="./assets/images/balancer.jpg" alt="Card 1">
-        <h2>Card 1</h2>
-      </div>
+
+      <a href="./chatbot"
+      onclick="selectVolumeSlider('Chatbot')">
+        <div class="card">
+            <img src="./assets/images/balancer.jpg" alt="Image 1">
+            <h2>Chatbot Volume Balancer</h2>
+        </div>
+      </a>
+
       <a href="./circle"
-        onclick="selectVolumeSlider('Circle')">
+      onclick="selectVolumeSlider('Circle')">
         <div class="card">
             <img src="./assets/images/balancer.jpg" alt="Image 2">
             <h2>Circular Volume Balancer</h2>
@@ -70,43 +85,17 @@
             <h2>Image Volume Balancer</h2>
         </div>
       </a>
+
+      <a href="./flappyBox"
+      onclick="selectVolumeSlider('Flappy Box')">
         <div class="card">
             <img src="./assets/images/balancer.jpg" alt="Image 4">
-            <h2>Card 4</h2>
+            <h2>Flappy Box</h2>
         </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 5">
-            <h2>Card 5</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 6">
-            <h2>Card 6</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 7">
-            <h2>Card 7</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 8">
-            <h2>Card 8</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 9">
-            <h2>Card 9</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 10">
-            <h2>Card 10</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 11">
-            <h2>Card 11</h2>
-        </div>
-        <div class="card">
-            <img src="./assets/images/balancer.jpg" alt="Image 12">
-            <h2>Card 12</h2>
-        </div>
+      </a>
     </div>
-    <script type="module" src="./js/utils.js"></script>
+
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/common/utils.js"></script>
 </body>
 </html>

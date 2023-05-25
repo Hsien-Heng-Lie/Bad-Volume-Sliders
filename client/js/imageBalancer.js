@@ -1,31 +1,11 @@
-// Get the elements
+
 const imageUpload = document.getElementById('image-upload');
 const imageCanvas = document.getElementById('image-canvas');
 const audioElement = document.getElementById('audio-player');
 const audioDisplay = document.getElementById('audio-display');
 
-// Get the play and pause buttons
-const playButton = document.getElementById('play-button');
-const pauseButton = document.getElementById('pause-button');
-
-// Add event listeners to the buttons
-playButton.addEventListener('click', playAudio);
-pauseButton.addEventListener('click', pauseAudio);
-
-// Function to play the audio
-function playAudio() {
-  audioElement.play();
-}
-
-// Function to pause the audio
-function pauseAudio() {
-  audioElement.pause();
-}
-
-// Add event listener to handle image upload
 imageUpload.addEventListener('change', handleImageUpload);
 
-// Function to handle image upload
 function handleImageUpload(event) {
   const file = event.target.files[0];
 

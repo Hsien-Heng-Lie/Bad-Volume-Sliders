@@ -6,17 +6,18 @@ async function readVolumerSlider() {
 
   const request = new sql.Request(conn);
 
-  const query = `SELECT
-  vs.id,
-  vs.Name,
-  vsc.Clicks,
-  ROW_NUMBER() OVER(ORDER BY vsc.Clicks DESC) AS [Row]
- FROM [dbo].[VolumeSlider] AS vs
- INNER JOIN [dbo].[VolumeSliderClicks] AS vsc
- ON vsc.VolumeSliderId = vs.Id
- ORDER BY [Row] ASC`;
+  const query = `EXEC	[dbo].[sp_ReadLeaderBoard]`;
 
- 
+  const result = await request.query(query);
+  return result.recordset;
+};
+
+async function readVolumerSliderReviews() {
+  const conn = await dbConnect
+
+  const request = new sql.Request(conn);
+
+  const query = `EXEC	[dbo].[sp_ReadReviews]`;
 
   const result = await request.query(query);
   return result.recordset;
@@ -27,8 +28,6 @@ async function updateVolumeSliderClick(name) {
 
   const request = new sql.Request(conn);
   const query = 'EXEC	[dbo].[sp_UpsertVolumeSlider] @Name = \'' + name + '\''; 
-
-  console.log(name);
   const result = await request.query(query);
   return result.output;
 };
@@ -48,15 +47,32 @@ async function createVolumeSliderReview(name, review, rating) {
   return result.output;
 };
 
+async function readKey(name) {
+  const n = 'OpenAI';
+  const conn = await dbConnect
+  const request = new sql.Request(conn);
+  //const query = 'EXEC [dbo].[sp_ReadKey] @Name = \'' + name
+  const query = 'EXEC	[dbo].[sp_ReadKey] @Name = \'' + n + '\''; 
+  const result = await request.query(query);
+  return result.recordset;
+};
+
+
 
 module.exports = {
   readVolumerSlider: function(){
     return readVolumerSlider();
+  },
+  readVolumerSliderReviews: function(){
+    return readVolumerSliderReviews();
   },
   updateVolumeSliderClick: function(name){
     return updateVolumeSliderClick(name);
   },
   createVolumeSliderReview: function(name, review, rating){
     return createVolumeSliderReview(name, review, rating);
+  },
+  readKey: function(name){
+    return readKey(name);
   }
 };

@@ -1,11 +1,14 @@
-async function query(path){
-  const response = await fetch(path);
+
+async function listVolumeSliderDetails() {
+  const response = await fetch('volumeslider/details');
   const responseJson = await response.json();
   return responseJson;
 };
 
-async function listVolumeSliderDetails() {
-  return await query('volumeslider/details');
+async function listVolumeSliderReviews() {
+  const response = await fetch('volumeslider/reviews');
+  const responseJson = await response.json();
+  return responseJson;
 };
 
 async function incrementVolumeSliderClicks(name){
@@ -31,7 +34,6 @@ async function reviewVolumeSlider(name, review, rating){
     rating: rating
     }
     )
-  console.log(params);
 
   const response = await fetch(path, {
     method: "POST",
@@ -47,6 +49,7 @@ async function reviewVolumeSlider(name, review, rating){
 
 export {
   listVolumeSliderDetails,
+  listVolumeSliderReviews,
   incrementVolumeSliderClicks,
-  reviewVolumeSlider,
+  reviewVolumeSlider
 };
