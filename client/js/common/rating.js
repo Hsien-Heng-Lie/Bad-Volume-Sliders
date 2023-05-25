@@ -16,13 +16,40 @@ reviewForm.addEventListener('submit', function(event) {
 
 stars.forEach(function(star) {//TODO: not working
   star.addEventListener('click', function() {
-    // Toggle the checked class on the clicked star
-    this.classList.toggle('checked');
+    const starID = parseInt(this.id);
+    // Check the clicked star
+    this.classList.add('checked');
 
-    // Toggle the checked class on the previous stars
-    const previousStars = Array.from(this.parentElement.children).slice(0, Number(this.getAttribute('data-rating')));
-    previousStars.forEach(function(prevStar) {
-      prevStar.classList.toggle('checked');
-    });
+    // Check the preceeding stars
+    for (let starIndex = 0; starIndex < starID; starIndex++) {
+      stars[starIndex].classList.add('checked');
+    }
+
+    // Uncheck the following stars
+    for (let starIndex = starID + 1; starIndex < 5; starIndex++) {
+      stars[starIndex].classList.remove('checked');
+    }
+  });
+
+  star.addEventListener('mouseover', function() {
+    const starID = parseInt(this.id);
+    // Check the clicked star
+    this.classList.add('hovered');
+
+    // Check the preceeding stars
+    for (let starIndex = 0; starIndex < starID; starIndex++) {
+      stars[starIndex].classList.add('hovered');
+    }
+
+    // Uncheck the following stars
+    for (let starIndex = starID + 1; starIndex < 5; starIndex++) {
+      stars[starIndex].classList.remove('hovered');
+    }
+  });
+
+  star.addEventListener('mouseout', function() {// Uncheck the following stars
+    for (let starIndex = 0; starIndex < 5; starIndex++) {
+      stars[starIndex].classList.remove('hovered');
+    }
   });
 });
