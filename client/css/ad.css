@@ -4,10 +4,7 @@
   align-items: center;
   justify-content: center;
 }
-p {
-  font-size: 17px;
-  align-items: center;
-}
+
 .box a {
   display: inline-block;
   background-color: #fff;
@@ -34,6 +31,17 @@ p {
   padding: 1em 2em;
   border-radius: 4px;
 }
+
+.content p{
+  color:rgb(3, 145, 3);
+  font-size: 17px;
+  align-items: center;
+}
+
+.content h1{
+  color:red;
+}
+
 .modal:target {
   visibility: visible;
   opacity: 1;
