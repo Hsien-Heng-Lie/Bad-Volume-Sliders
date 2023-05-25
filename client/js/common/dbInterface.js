@@ -5,6 +5,10 @@ async function listVolumeSliderDetails() {
   return responseJson;
 };
 
+async function listVolumeSliderReviews() {
+  return await query('volumeslider/reviews');
+};
+
 async function incrementVolumeSliderClicks(name){
   const path = 'volumeslider/update/click'
   const params = JSON.stringify({name: name})
@@ -44,6 +48,7 @@ async function reviewVolumeSlider(name, review, rating){
 
 export {
   listVolumeSliderDetails,
+  listVolumeSliderReviews,
   incrementVolumeSliderClicks,
-  reviewVolumeSlider,
+  reviewVolumeSlider
 };

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/stats.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+      
+      <title>Bad Volume Sliders Leaderboard</title>
+
+  </head>
+  <body onload="populateTables()">
+    <header class="header">
+      <h1 class="animated-heading">Bad Volume Sliders Leaderboard</h1>
+    </header>
+    <section>
+    <h2>Leaderboard</h2>
+      <table id="leaderboardTable" cellpadding="2">
+        <tr>
+        <td><b>Rank</b></td>
+        <td><b>Name</b></td>
+        <td><b>Clicks</b></td>
+        </tr>
+      </table>
+    </section>
+    <section>
+    <h2>Reviews</h2>
+      <table id="reviewTable" cellpadding="2">
+       <tr>
+        <td><b>Name</b></td>
+        <td><b>Date</b></td>
+        <td><b>Rating</b></td>
+        <td><b>Review</b></td>
+       </tr>
+      </table>
+    </section>
+    <script type="module" src="./js/stats.js"></script>
+  </body>
+</html>
