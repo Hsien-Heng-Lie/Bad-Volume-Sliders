@@ -1,7 +1,7 @@
 
 const imageUpload = document.getElementById('image-upload');
 const imageCanvas = document.getElementById('image-canvas');
-const audioElement = document.getElementById('audio-player');
+const audioPlayer = document.getElementById('audio-player');
 
 imageUpload.addEventListener('change', handleImageUpload);
 
@@ -32,7 +32,7 @@ function handleImageUpload(event) {
         const maxVolume = 100; // Adjust this value to set the maximum volume
         const volume = Math.round((averageRGB / 255) * maxVolume);
         console.log(volume)
-        audioElement.volume = volume / maxVolume;
+        audioPlayer.volume = volume / maxVolume;
       };
       image.src = e.target.result;
     };

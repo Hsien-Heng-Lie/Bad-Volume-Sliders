@@ -1,4 +1,6 @@
-const audioPlayer = document.getElementById('audio-player');
+const audio = document.getElementById('audio-player');
+const label = document.getElementById('volume-label');
+const slider = document.getElementById('volume-slider');
 
 // Get the play and pause buttons
 const playButton = document.getElementById('play-button');
@@ -7,14 +9,24 @@ const stopButton = document.getElementById('stop-button');
 
 // Add event listeners to the buttons
 playButton.addEventListener('click', () =>
-  audioPlayer.play()
+  audio.play()
 );
 
 pauseButton.addEventListener('click', () =>
-  audioPlayer.pause()
+  audio.pause()
 );
 
 stopButton.addEventListener('click', () => {
-  audioPlayer.pause();
-  audioPlayer.currentTime = 0;
+  audio.pause();
+  audio.currentTime = 0;
 });
+
+slider.addEventListener('input', volumeSliderUpdate);
+slider.addEventListener('change', volumeSliderUpdate);
+
+function volumeSliderUpdate() {
+  const roundedVolume = parseInt(slider.value).toFixed(0);
+  audio.volume = roundedVolume / 100;
+  slider.value = roundedVolume;
+  label.innerText = `Current volume: ${roundedVolume}%`;
+}
