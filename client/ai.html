@@ -11,7 +11,7 @@
             <!DOCTYPE html>
         </head>
             <input id="volume" type="range" class="slider">
-            <p id="value">Value:</p>
+            <p id="value">Current volume: 100%</p>
             <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3" controls></audio>
             <div class="controls">
                 <button id="play-button">Play</button>
@@ -19,13 +19,11 @@
               </div>
         </body>
 
-        <label id="volume-label">Current volume: 100%</label>
-
         <section>
             <button id="chatbot-button">Ask AI!</button>
             <input type="text" id="prompt-input" size="100"/>
         </section>
-        <label id="ai-label">Response</label>
+        <label id="ai-label"></label>
 
         <script src="./js/ai.js"></script>
     </head>
