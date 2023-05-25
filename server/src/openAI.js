@@ -13,7 +13,7 @@ async function APIcall(prompt) {
       model: "text-davinci-003",
       prompt,
     });
-    return completion.data.choices[0].text;
+    return completion.data.choices[0].text.trim();
   } catch (error) {
     if (error.response) {
       console.log(error.response.status);
