@@ -10,6 +10,8 @@ const server = app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
 });
 
+app.use(bodyParser.json())
+
 //logs all methods to console
 app.use('*', (req, res, next) => {
   console.log(`${req.method} on ${req.originalUrl}`);
@@ -37,7 +39,7 @@ app.post('/volumeslider/review', async (req, res) => {
 
 app.get('/chat/:prompt', async (req, res) => {
   const details = await openAI.APIcall(req.params.prompt);
-  res.write(details);
+  res.json(details);
   res.end();
 });
 
@@ -48,7 +50,6 @@ app.get('/', function(req, res){
 
 //any other public page
 app.use(express.static('./client', {extensions:['html']}));
-app.use(bodyParser.json())
 
 //any other routes go here
 app.get('*', function(req, res){

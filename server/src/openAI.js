@@ -24,7 +24,7 @@ async function APIcall(prompt) {
   //     console.log(error.message);
   //   }
   // }
-  return 'testing';
+  return prompt;
 }
 
 module.exports = {
