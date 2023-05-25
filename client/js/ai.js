@@ -32,7 +32,6 @@ function parseVolume(generatedResponse) {
 }
 
 async function aiCall() {
-  //TODO: prompt sanitisation
   const userPrompt = aiInput.value.trim();
   if (userPrompt.length < 10 || !/[a-zA-Z]/.test(userPrompt)) {
     aiLabel.innerText = 'Please eneter a valid prompt for the Chatbot.';
