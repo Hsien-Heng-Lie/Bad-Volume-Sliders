@@ -6,7 +6,7 @@ Some really bad ways to implement volume control.
 Run `npm install`
 
 ## To start the server:
-Run `nodemon app.js` (then go to http://localhost:4000)
+Run `npm run start` (then go to http://localhost:4000)
 
 
 
