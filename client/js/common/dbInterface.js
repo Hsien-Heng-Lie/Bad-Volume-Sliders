@@ -6,7 +6,9 @@ async function listVolumeSliderDetails() {
 };
 
 async function listVolumeSliderReviews() {
-  return await query('volumeslider/reviews');
+  const response = await fetch('volumeslider/reviews');
+  const responseJson = await response.json();
+  return responseJson;
 };
 
 async function incrementVolumeSliderClicks(name){

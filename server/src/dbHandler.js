@@ -28,8 +28,6 @@ async function updateVolumeSliderClick(name) {
 
   const request = new sql.Request(conn);
   const query = 'EXEC	[dbo].[sp_UpsertVolumeSlider] @Name = \'' + name + '\''; 
-
-  console.log(name);
   const result = await request.query(query);
   return result.output;
 };

@@ -1,4 +1,4 @@
-import * as dbInterface from './dbInterface.js';
+import * as dbInterface from './common/dbInterface.js';
 
 const leaderboardTable = document.getElementById("leaderboardTable");
 const reviewTable = document.getElementById("reviewTable");
