@@ -1,12 +1,10 @@
-// Get the elements
+
 const imageUpload = document.getElementById('image-upload');
 const imageCanvas = document.getElementById('image-canvas');
 const audioElement = document.getElementById('audio-player');
 
-// Add event listener to handle image upload
 imageUpload.addEventListener('change', handleImageUpload);
 
-// Function to handle image upload
 function handleImageUpload(event) {
   const file = event.target.files[0];
 

@@ -1,8 +1,11 @@
-const { Configuration, OpenAIApi } = require("openai");
+const {
+  Configuration,
+  OpenAIApi,
+} = require("openai");
 
 require('dotenv').config();
 
-async function APIcall(prompt) {
+async function getAIResponse(prompt) {
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
   });
@@ -26,5 +29,5 @@ async function APIcall(prompt) {
 }
 
 module.exports = {
-  APIcall,
+  getAIResponse,
 };

@@ -6,21 +6,15 @@ const pauseButton = document.getElementById('pause-button');
 const stopButton = document.getElementById('stop-button');
 
 // Add event listeners to the buttons
-playButton.addEventListener('click', playAudio);
-pauseButton.addEventListener('click', pauseAudio);
-stopButton.addEventListener('click', stopAudio);
+playButton.addEventListener('click', () =>
+  audioPlayer.play()
+);
 
-// Function to play the audio
-function playAudio() {
-  audioPlayer.play();
-}
+pauseButton.addEventListener('click', () =>
+  audioPlayer.pause()
+);
 
-// Function to pause the audio
-function pauseAudio() {
-  audioPlayer.pause();
-}
-
-function stopAudio() {
+stopButton.addEventListener('click', () => {
   audioPlayer.pause();
   audioPlayer.currentTime = 0;
-}
+});
