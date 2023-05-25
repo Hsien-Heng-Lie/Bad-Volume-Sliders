@@ -1,9 +1,17 @@
 #image-upload {
-    margin-top: 20px;
-  }
-  
-  #image-canvas {
-    display: none;
-    max-width: 100%;
-    height: auto;
-  }
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  font-size: 2em;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 0 20px var(--neon-glow-color);
+}
+
+#image-upload:active {
+  background-color: var(--glitch-color-1);
+}
+
+#audio-display {
+  font-size: 2rem;
+}

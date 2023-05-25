@@ -34,7 +34,6 @@ async function reviewVolumeSlider(name, review, rating){
     rating: rating
     }
     )
-  console.log(params);
 
   const response = await fetch(path, {
     method: "POST",

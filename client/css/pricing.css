@@ -1,61 +1,61 @@
 /* Add CSS styles here */
 
 .pricing-section {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  animation: fadeIn 1s;
+}
 
-  }
-  
-  .pricing-card {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    width: 250px;
-    margin: 0 10px;
-  }
-  
-  .plan-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .plan-price {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  
-  .plan-features {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-  }
-  
-  .plan-features li {
-    margin-bottom: 5px;
-  }
-  
-  .plan-button {
-    background-color: #3b5998;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .plan-button:hover {
-    background-color: #293f70;
-  }
-  
+.pricing-card {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  width: 20rem;
+  margin: 0 10px;
+}
+
+.plan-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.plan-price {
+  color: var(--price-color);
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.plan-features li {
+  margin-bottom: 5px;
+}
+
+.plan-button {
+  background-color: #3b5998;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.plan-button:hover {
+  background-color: #293f70;
+}
