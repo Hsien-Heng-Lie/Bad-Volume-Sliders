@@ -15,6 +15,8 @@ const volumeSlider = document.getElementById('volume');
 playButton.addEventListener('click', playAudio);
 pauseButton.addEventListener('click', pauseAudio);
 aiButton.addEventListener('click', aiCall);
+volumeSlider.addEventListener('input', volumeSliderUpdate);
+volumeSlider.addEventListener('change', volumeSliderUpdate);
 
 // Function to play the audio
 function playAudio() {
@@ -26,16 +28,21 @@ function pauseAudio() {
   audioElement.pause();
 }
 
+function volumeSliderUpdate() {
+  updateVolume(parseInt(volumeSlider.value));
+}
+
 function updateVolume(newVolume) {
-  audioElement.volume = newVolume;
-  volumeSlider.value = newVolume * 100;
-  volumeLabel.innerText = `Current volume: ${(newVolume * 100).toFixed(0)}%`;
+  const roundedVolume = newVolume.toFixed(0);
+  audioElement.volume = roundedVolume / 100;
+  volumeSlider.value = roundedVolume;
+  volumeLabel.innerText = `Current volume: ${roundedVolume}%`;
 }
 
 function parseVolume(generatedResponse) {
   const matches = generatedResponse.match(/(\d+)(?=[^\d]+$)/g);
   if (matches) {
-    return parseInt(matches[0]) / 100;
+    return parseInt(matches[0]);
   }
   return audioElement.volume;
 }
