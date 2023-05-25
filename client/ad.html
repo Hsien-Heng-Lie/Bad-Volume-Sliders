@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/ad.css">
+  <link rel="stylesheet" type="text/css" href="./css/volume-slider.css">
+  <title>Clicky Volume Balancer</title>
+  </head>
+  
+<body>
+  <h1>Circular Volume Slider</h1>       
+  <input id="volume-slider" type="range" class="slider" value="100" hidden>
+  <p id="volume-label">Current volume: 100%</p>
+  <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3"></audio>
+
+  <section class="controls">
+    <button id="play-button">Play</button>
+    <button id="pause-button" >Pause</button>
+    <button id="stop-button">Stop</button>
+  </section>
+
+	<section>
+		<button 
+    id="volume-up"
+    onclick="location.href='#popup-box'" 
+    >
+			Volume Up
+		</button>
+    <button 
+    id="volume-down"
+    onclick="location.href='#popup-box'"  
+    >
+			Volume Down
+		</button>
+	</section>
+	<section id="popup-box" class="modal">
+		<section class="content">
+			<h1 style="color: green;">
+        !!PSA!!
+			</h1>
+			<b>
+				<p>Ads help us help you change your volume</p>
+			</b>
+			<a href="#"
+			class="box-close">
+				x
+			</a>
+		</section>
+	</section>
+  <script src="./js/ad.js"></script>
+  <script src="./js/common/audioControls.js"></script>
+</body>
+</html>
