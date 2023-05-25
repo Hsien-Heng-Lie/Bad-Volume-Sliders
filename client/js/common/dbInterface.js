@@ -1,11 +1,8 @@
-async function query(path){
-  const response = await fetch(path);
-  const responseJson = await response.json();
-  return responseJson;
-};
 
 async function listVolumeSliderDetails() {
-  return await query('volumeslider/details');
+  const response = await fetch('volumeslider/details');
+  const responseJson = await response.json();
+  return responseJson;
 };
 
 async function incrementVolumeSliderClicks(name){

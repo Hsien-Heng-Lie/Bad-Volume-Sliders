@@ -9,14 +9,14 @@
             <h1>Circular Volume Slider</h1>
             <!DOCTYPE html>
         </head>
-            <input id="volume" type="range" class="slider">
-            <p id="value">Value:</p>
-            <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3"></audio>
-            <div class="controls">
-                <button id="play-button">Play</button>
-                <button id="pause-button" >Pause</button>
-                <button id="stop-button">Stop</button>
-              </div>
+        <input id="volume-slider" type="range" class="slider" value="100">
+        <p id="volume-label">Current volume: 100%</p>
+        <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3"></audio>
+        <div class="controls">
+            <button id="play-button">Play</button>
+            <button id="pause-button" >Pause</button>
+            <button id="stop-button">Stop</button>
+          </div>
             <div id="volume-container" onclick="setVolume(event)">
                 <div id="volume-bar">
                     <div id="volume-fill"></div>

@@ -1,9 +1,7 @@
-// Add this code within your script.js file
 
-// Get the form element
 const reviewForm = document.getElementById('review-form');
+const stars = document.querySelectorAll('.star');
 
-// Add submit event listener to the form
 reviewForm.addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent form submission
 
@@ -12,15 +10,11 @@ reviewForm.addEventListener('submit', function(event) {
   const rating = document.querySelector('.star.checked').getAttribute('data-rating');
 
   // Save the form data in variables
-  console.log('Review:', review);
-  console.log('Rating:', rating);
+  console.log('Review: ', review);
+  console.log('Rating: ', rating);
 });
 
-// Get all star elements
-const stars = document.querySelectorAll('.star');
-
-// Add click event listeners to the stars
-stars.forEach(function(star) {
+stars.forEach(function(star) {//TODO: not working
   star.addEventListener('click', function() {
     // Toggle the checked class on the clicked star
     this.classList.toggle('checked');

@@ -2,17 +2,16 @@ import * as dbInterface from './dbInterface.js';
 
 let audioDetails = [];
 
-async function getVolumeSliderDetails(){
+async function getVolumeSliderDetails() {
   audioDetails = await dbInterface.listVolumeSliderDetails();
   console.log(audioDetails)
 };
 
-function selectVolumeSlider(name){
-  console.log(name);
+function selectVolumeSlider(name) {
   dbInterface.incrementVolumeSliderClicks(name);
 };
 
-function reviewVolumeSlider(name, review, rating){
+function reviewVolumeSlider(name, review, rating) {
   dbInterface.reviewVolumeSlider(name, review, rating);
 };
 

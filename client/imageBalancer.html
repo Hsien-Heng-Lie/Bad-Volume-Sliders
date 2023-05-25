@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/imageBalancer.css">
     <link rel="stylesheet" href="./css/rating.css">
+    <link rel="stylesheet" type="text/css" href="./css/volume-slider.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <title>Bad Volume Sliders</title>
 </head>
@@ -17,11 +18,13 @@
     <input type="file" id="image-upload" accept="jpg">
     <canvas id="image-canvas"></canvas>
 
-    <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3" ></audio>
+    <input id="volume-slider" type="range" class="slider" value="100">
+    <p id="volume-label">Current volume: 100%</p>
+    <audio id="audio-player" src="/assets/purrple-cat-green-tea.mp3"></audio>
     <div class="controls">
-      <button id="play-button">Play</button>
-      <button id="pause-button" >Pause</button>
-      <button id="stop-button">Stop</button>
+        <button id="play-button">Play</button>
+        <button id="pause-button" >Pause</button>
+        <button id="stop-button">Stop</button>
       </div>
     <div class="volume-balancer">
       <label for="audio-element">Volume Balancer:</label>
