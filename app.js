@@ -6,11 +6,14 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 4000;
 
+app.use(bodyParser.json())
+
 const server = app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
 });
 
-app.use(bodyParser.json())
+//any other public page
+app.use(express.static('./client', {extensions:['html']}));
 
 //logs all methods to console
 app.use('*', (req, res, next) => {
@@ -47,9 +50,6 @@ app.get('/chat/:prompt', async (req, res) => {
 app.get('/', function(req, res){
   res.sendFile('index.html', { root: './client' , extensions:['html'] });
 });
-
-//any other public page
-app.use(express.static('./client', {extensions:['html']}));
 
 //any other routes go here
 app.get('*', function(req, res){
