@@ -3,11 +3,21 @@ const {
   OpenAIApi,
 } = require("openai");
 
+const crypto = require('crypto');
+const config = require('../../config.json');
+const dbHandler = require("./dbHandler");
+
+const algorithm = config.crypt.algo; //Using AES encryption
+const key = crypto.randomBytes(32);
+const iv = crypto.randomBytes(16);
+
 require('dotenv').config();
 
 async function getAIResponse(prompt) {
+  const cryptedKey = await dbHandler.readKey('OpenAi');
+  const apiKey = cryptedKey[0].encryptedData;
   const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: apiKey,
   });
   const openai = new OpenAIApi(configuration);
 
