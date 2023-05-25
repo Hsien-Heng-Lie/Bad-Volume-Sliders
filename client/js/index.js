@@ -46,13 +46,3 @@ document.addEventListener("DOMContentLoaded", function() {
     isDragging = false;
   });
 });
-
-// Add this code within your script.js file
-
-// Get the elements
-const imageUpload = document.getElementById('image-upload');
-const imageCanvas = document.getElementById('image-canvas');
-const audioElement = document.getElementById('audio-element');
-
-
-

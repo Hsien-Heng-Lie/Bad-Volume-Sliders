@@ -3,10 +3,12 @@ const audioElement = document.getElementById('audio-player');
 // Get the play and pause buttons
 const playButton = document.getElementById('play-button');
 const pauseButton = document.getElementById('pause-button');
+const stopButton = document.getElementById('stop-button');
 
 // Add event listeners to the buttons
 playButton.addEventListener('click', playAudio);
 pauseButton.addEventListener('click', pauseAudio);
+stopButton.addEventListener('click', stopAudio);
 
 // Function to play the audio
 function playAudio() {
@@ -16,6 +18,11 @@ function playAudio() {
 // Function to pause the audio
 function pauseAudio() {
   audioElement.pause();
+}
+
+function stopAudio() {
+  audioElement.pause();
+  audioElement.currentTime = 0;
 }
 
 let prevAngle = 0;
