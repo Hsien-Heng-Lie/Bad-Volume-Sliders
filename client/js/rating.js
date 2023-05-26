@@ -3,7 +3,7 @@ import * as dbInterface from './common/dbInterface.js';
 const reviewForm = document.getElementById('review-form');
 const stars = document.querySelectorAll('.star');
 const dropdown = document.getElementById("dropdown");
-let review = document.getElementById('review').value
+let review = document.getElementById('review');
 let selectedRating = 0;
 
 function reviewVolumeSlider(name, review, rating){
@@ -21,18 +21,14 @@ async function getSliderNames(){
 
 reviewForm.addEventListener('submit', function(event) {
   event.preventDefault(); 
-
   const rating = selectedRating;
-  reviewVolumeSlider(dropdown.value,review, rating);
+  reviewVolumeSlider(dropdown.value,review.value, rating);
   clearFields();
 
 });
 
 
 function clearFields(){
-  var frm = document.getElementById('review-form');
-  frm.reset();
-
   stars.forEach(function(star) {
     const rating = parseInt(star.getAttribute('data-rating'));
   
@@ -42,6 +38,8 @@ function clearFields(){
     
     selectedRating = rating;
   });
+  window.location = '../stats.html'
+
 }
 
 stars.forEach(function(star) {
