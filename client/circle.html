@@ -5,28 +5,27 @@
         <link rel="stylesheet" type="text/css" href="./css/circle.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <link rel="stylesheet" type="text/css" href="./css/volume-slider.css">
+      </head>
         <body>
           <header class="header">
             <h1 class="animated-heading">Circular Volume Slider</h1>
           </header> 
-            <!DOCTYPE html>
-        </head>
-        <input id="volume-slider" type="range" class="slider" value="100">
+        <input id="volume-slider" type="range" class="slider" value="100"></input>
         <p id="volume-label">Current volume: 100%</p>
-        <audio id="audio-player" src="/assets/loud_jazz"></audio>
+        <audio id="audio-player" src="./assets/loud_jazz.mp3"></audio>
         <section class="controls">
             <button id="play-button">Play</button>
             <button id="pause-button" >Pause</button>
             <button id="stop-button">Stop</button>
           </section>
-            <section id="volume-container" onclick="setVolume(event)">
-                <section id="volume-bar">
-                    <section id="volume-fill"></section>
-                </section>
-            </section>
 
-            <script src="./js/circle.js"></script>
+          <section id="volume-container" onclick="setVolume(event)">
+              <section id="volume-bar">
+                  <section id="volume-fill"></section>
+              </section>
+          </section>
             <script src="./js/common/audioControls.js"></script>
+            <script src="./js/circle.js"></script>
         </body>
     </head>
 </html>
