@@ -2,12 +2,10 @@ const audio = document.getElementById('audio-player');
 const label = document.getElementById('volume-label');
 const slider = document.getElementById('volume-slider');
 
-// Get the play and pause buttons
 const playButton = document.getElementById('play-button');
 const pauseButton = document.getElementById('pause-button');
 const stopButton = document.getElementById('stop-button');
 
-// Add event listeners to the buttons
 playButton.addEventListener('click', () =>
   audio.play()
 );

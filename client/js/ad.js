@@ -5,7 +5,6 @@ const upButton = document.getElementById('volume-up');
 const downButton = document.getElementById('volume-down');
 
 
-// Add event listeners to the buttons
 upButton.addEventListener('click', () =>
   incrementVolume()
 );
